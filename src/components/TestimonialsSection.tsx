@@ -1,0 +1,127 @@
+import { Star, Quote } from "lucide-react";
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Andrea Ramírez",
+    scholarship: "Beca Chevening",
+    country: "Reino Unido",
+    university: "University of Oxford",
+    quote:
+      "Sin la guía de Mar de Becas, jamás hubiera logrado estructurar mi postulación de manera estratégica. Marilú me ayudó a descubrir y comunicar mi verdadero potencial. ¡Hoy estoy viviendo mi sueño en Oxford!",
+    image: "AR",
+  },
+  {
+    id: 2,
+    name: "Carlos Mendoza",
+    scholarship: "Beca Fulbright",
+    country: "Estados Unidos",
+    university: "Columbia University",
+    quote:
+      "El proceso de la Fulbright parecía abrumador hasta que conocí a Mar de Becas. Las sesiones de preparación para la entrevista fueron clave. Estoy eternamente agradecido por su apoyo incondicional.",
+    image: "CM",
+  },
+  {
+    id: 3,
+    name: "María José Torres",
+    scholarship: "DAAD",
+    country: "Alemania",
+    university: "TU Munich",
+    quote:
+      "Marilú no solo me ayudó con los documentos, sino que me dio la confianza que necesitaba. Su metodología es impecable y su compromiso es genuino. 100% recomendada.",
+    image: "MT",
+  },
+  {
+    id: 4,
+    name: "Luis Fernando García",
+    scholarship: "Erasmus Mundus",
+    country: "Europa",
+    university: "Programa conjunto UE",
+    quote:
+      "Apliqué dos veces antes sin éxito. Con la asesoría de Mar de Becas, entendí qué me faltaba y logré una postulación ganadora. La inversión más valiosa que hice en mi carrera.",
+    image: "LG",
+  },
+];
+
+export function TestimonialsSection() {
+  return (
+    <section id="testimonios" className="section-padding bg-background">
+      <div className="container-wide">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
+            Testimonios
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Historias de <span className="text-gradient">éxito real</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Conoce a quienes confiaron en nosotros y hoy cumplen sus sueños 
+            académicos en las mejores universidades del mundo.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              className="bg-card rounded-2xl p-8 card-elevated relative"
+            >
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10" />
+              
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  {testimonial.image}
+                </div>
+                <div>
+                  <h4 className="font-bold text-foreground">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-sm text-primary font-medium">
+                    {testimonial.scholarship}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {testimonial.university}
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-muted-foreground leading-relaxed mb-6 italic">
+                "{testimonial.quote}"
+              </p>
+
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 fill-accent text-accent"
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Success Stats */}
+        <div className="mt-16 bg-primary rounded-2xl p-8 md:p-12">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { number: "500+", label: "Becarios asesorados" },
+              { number: "95%", label: "Tasa de éxito" },
+              { number: "25", label: "Países de destino" },
+              { number: "50+", label: "Universidades top" },
+            ].map((stat, index) => (
+              <div key={index}>
+                <p className="text-4xl md:text-5xl font-bold text-primary-foreground mb-2">
+                  {stat.number}
+                </p>
+                <p className="text-primary-foreground/80 text-sm">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
