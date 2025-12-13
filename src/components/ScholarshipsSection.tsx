@@ -50,7 +50,7 @@ const scholarships = [
     deadline: "Abril 2025",
     funding: "Financiamiento completo",
     description:
-      "Becas del gobierno australiano para líderes de países en desarrollo. Incluye preparación previa.",
+      "Becas enfocadas en liderazgo y másters alineados a los ODS.",
     tags: ["Maestría", "Desarrollo"],
   },
   {
