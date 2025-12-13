@@ -51,7 +51,7 @@ export function HeroSection() {
           number: "80+",
           label: "Becarios asesorados"
         }, {
-          number: "25",
+          number: "10",
           label: "Países destino"
         }, {
           number: "95%",
