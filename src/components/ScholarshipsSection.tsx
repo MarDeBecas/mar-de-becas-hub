@@ -60,7 +60,7 @@ const scholarships = [
     deadline: "Variable",
     funding: "Parcial/Completo",
     description:
-      "Alianzas con universidades de toda América. Opciones en múltiples áreas de estudio.",
+      "Dirigida a profesionales peruanos con alto rendimiento académico, recursos económicos limitados y admisión a una universidad de prestigio internacional para estudios de posgrado.",
     tags: ["Maestría", "Regional"],
   },
 ];
