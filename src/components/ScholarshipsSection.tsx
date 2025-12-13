@@ -61,7 +61,7 @@ const scholarships = [
     funding: "Financiamiento completo",
     description:
       "Dirigida a profesionales peruanos con alto rendimiento académico, recursos económicos limitados y admisión a una universidad de prestigio internacional para estudios de posgrado.",
-    tags: ["Maestría", "Regional"],
+    tags: ["Maestría", "Internacional"],
   },
 ];
 
