@@ -8,7 +8,7 @@ const testimonials = [
     country: "Reino Unido",
     university: "University of Oxford",
     quote:
-      "Sin la guía de Mar de Becas, jamás hubiera logrado estructurar mi postulación de manera estratégica. Marilú me ayudó a descubrir y comunicar mi verdadero potencial. ¡Hoy estoy viviendo mi sueño en Oxford!",
+      "La ayuda de Marilú en este proceso fue fundamental. Recuerdo que desde la primera asesoría pude hacer mi timeline de los pasos y consideraciones importantes que debía tener. Eso me ayudó mucho a poder organizarme. Además, cada vez que surgían dudas en este proceso siempre recurría a ella para preguntar y ella siempre estaba dispuesta en ayudar. Agradezco mucho su constancia a todos los mensajes que le envié, porque en realidad fueron muchos",
     image: "AR",
   },
   {
