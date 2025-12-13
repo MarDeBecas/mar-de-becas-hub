@@ -50,7 +50,7 @@ const scholarships = [
     deadline: "Junio 2025",
     funding: "Parcial/Completo",
     description:
-      "Becas enfocadas en liderazgo y másters alineados a los ODS.",
+      "Becas enfocadas en profesionales con excelente desempeño académico, liderazgo y compromiso social. Másteres alineados a los ODS.",
     tags: ["Maestría", "Desarrollo"],
   },
   {
