@@ -55,7 +55,7 @@ const scholarships = [
   },
   {
     id: 6,
-    name: "Beca OEA",
+    name: "Generación Bicentenario - PRONABEC",
     country: "Varios países",
     deadline: "Variable",
     funding: "Parcial/Completo",
