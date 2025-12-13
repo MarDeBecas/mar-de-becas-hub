@@ -46,7 +46,7 @@ const scholarships = [
   {
     id: 5,
     name: "Fundación Carolina",
-    country: "Australia",
+    country: "España",
     deadline: "Abril 2025",
     funding: "Financiamiento completo",
     description:
