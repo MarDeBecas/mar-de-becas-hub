@@ -48,7 +48,7 @@ const scholarships = [
     name: "Fundación Carolina",
     country: "España",
     deadline: "Junio 2025",
-    funding: "Financiamiento completo",
+    funding: "Parcial/Completo",
     description:
       "Becas enfocadas en liderazgo y másters alineados a los ODS.",
     tags: ["Maestría", "Desarrollo"],
