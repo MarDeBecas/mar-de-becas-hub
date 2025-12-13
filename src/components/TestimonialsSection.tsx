@@ -4,7 +4,7 @@ const testimonials = [
   {
     id: 1,
     name: "Emmy Taboada",
-    scholarship: "Beca Chevening",
+    scholarship: "Beca BGC",
     country: "Reino Unido",
     university: "University of Oxford",
     quote:
