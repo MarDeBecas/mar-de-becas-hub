@@ -3,7 +3,7 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Andrea Ramírez",
+    name: "Emmy Taboada",
     scholarship: "Beca Chevening",
     country: "Reino Unido",
     university: "University of Oxford",
