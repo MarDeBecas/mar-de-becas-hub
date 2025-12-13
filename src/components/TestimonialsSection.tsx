@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Carlos Mendoza",
+    name: "Nayvi Pablo",
     scholarship: "Beca Fulbright",
     country: "Estados Unidos",
     university: "Columbia University",
