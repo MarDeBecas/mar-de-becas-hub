@@ -18,7 +18,7 @@ const testimonials = [
     country: "Estados Unidos",
     university: "Columbia University",
     quote:
-      "El proceso de la Fulbright parecía abrumador hasta que conocí a Mar de Becas. Las sesiones de preparación para la entrevista fueron clave. Estoy eternamente agradecido por su apoyo incondicional.",
+      "Gracias a la mentoría de Marilu, fortalecí mis ensayos y me preparé con seguridad para la entrevista con la Embajada de Irlanda. Su guía fue fundamental para lograr una beca de Irish Aid y ser admitida en maestría en Género, Globalización Derechos en la Universidad de Galway. Más allá de lo académico, me ayudó a confiar en mi misma y siempre le estaré agradecida por su generosidad y compromiso.",
     image: "CM",
   },
   {
