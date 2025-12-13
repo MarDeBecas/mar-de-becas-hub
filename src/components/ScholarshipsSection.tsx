@@ -57,7 +57,7 @@ const scholarships = [
     id: 6,
     name: "Generación Bicentenario - PRONABEC",
     country: "Varios países",
-    deadline: "Variable",
+    deadline: "Junio 2025",
     funding: "Parcial/Completo",
     description:
       "Dirigida a profesionales peruanos con alto rendimiento académico, recursos económicos limitados y admisión a una universidad de prestigio internacional para estudios de posgrado.",
