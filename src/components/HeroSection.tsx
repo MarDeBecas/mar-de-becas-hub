@@ -1,25 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-scholarship.jpg";
-
 export function HeroSection() {
-  return (
-    <section
-      id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+  return <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${heroImage})`
+    }} />
       
       {/* Overlay */}
       <div className="absolute inset-0 hero-overlay" />
       
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" style={{
+      animationDelay: "3s"
+    }} />
 
       {/* Content */}
       <div className="relative z-10 container-narrow text-center pt-20">
@@ -32,19 +28,11 @@ export function HeroSection() {
           <span className="text-accent">beca internacional</span>
         </h1>
         
-        <p className="text-lg sm:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-up opacity-0 stagger-3">
-          En Mar de Becas te acompañamos en cada paso de tu postulación. 
-          Con asesoría experta y personalizada, transformamos tu sueño de 
-          estudiar en el extranjero en realidad.
-        </p>
+        <p className="text-lg sm:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-up opacity-0 stagger-3">En Mar de Becas te acompañamos en cada paso de tu postulación. Con asesoría experta y personalizada, transformamos tu sueño de estudiar en el extranjero en realidad.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up opacity-0 stagger-4">
           <Button variant="whatsapp" size="xl" asChild>
-            <a
-              href="https://wa.me/51999999999?text=Hola,%20me%20interesa%20información%20sobre%20becas"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://wa.me/51999999999?text=Hola,%20me%20interesa%20información%20sobre%20becas" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5" />
               Contáctanos por WhatsApp
             </a>
@@ -59,19 +47,24 @@ export function HeroSection() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-fade-up opacity-0 stagger-5">
-          {[
-            { number: "500+", label: "Becarios asesorados" },
-            { number: "25", label: "Países destino" },
-            { number: "95%", label: "Tasa de éxito" },
-            { number: "8", label: "Años de experiencia" },
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
+          {[{
+          number: "500+",
+          label: "Becarios asesorados"
+        }, {
+          number: "25",
+          label: "Países destino"
+        }, {
+          number: "95%",
+          label: "Tasa de éxito"
+        }, {
+          number: "8",
+          label: "Años de experiencia"
+        }].map((stat, index) => <div key={index} className="text-center">
               <div className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-1">
                 {stat.number}
               </div>
               <div className="text-sm text-primary-foreground/70">{stat.label}</div>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
 
@@ -81,6 +74,5 @@ export function HeroSection() {
           <div className="w-1.5 h-3 bg-primary-foreground/70 rounded-full" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
