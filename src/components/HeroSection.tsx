@@ -48,7 +48,7 @@ export function HeroSection() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-fade-up opacity-0 stagger-5">
           {[{
-          number: "500+",
+          number: "80+",
           label: "Becarios asesorados"
         }, {
           number: "25",
