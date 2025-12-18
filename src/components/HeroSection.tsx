@@ -52,7 +52,7 @@ export function HeroSection() {
           label: "Becarios asesorados"
         }, {
           number: "10",
-          label: "Países destino"
+          label: "Aliados"
         }, {
           number: "95%",
           label: "Tasa de éxito"
