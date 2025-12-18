@@ -105,7 +105,7 @@ export function TestimonialsSection() {
         <div className="mt-16 bg-primary rounded-2xl p-8 md:p-12">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: "500+", label: "Becarios asesorados" },
+              { number: "80", label: "Becarios asesorados" },
               { number: "95%", label: "Tasa de éxito" },
               { number: "25", label: "Países de destino" },
               { number: "50+", label: "Universidades top" },
