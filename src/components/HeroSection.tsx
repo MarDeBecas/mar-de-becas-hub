@@ -25,7 +25,7 @@ export function HeroSection() {
         
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up opacity-0 stagger-2">
           Impulsamos tu camino hacia una{" "}
-          <span className="text-accent">beca internacional</span>
+          <span className="text-accent">tu beca soñada.</span>
         </h1>
         
         <p className="text-lg sm:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-up opacity-0 stagger-3">En Mar de Becas te acompañamos en cada paso de tu postulación. Con asesoría experta y personalizada, transformamos tu sueño de estudiar en el extranjero en realidad.</p>
