@@ -32,7 +32,7 @@ export function HeroSection() {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up opacity-0 stagger-4">
           <Button variant="whatsapp" size="xl" asChild>
-            <a href="https://wa.me/51999999999?text=Hola,%20me%20interesa%20información%20sobre%20becas" target="_blank" rel="noopener noreferrer">
+            <a target="_blank" rel="noopener noreferrer" href=" wa.link/l8tsf6">
               <MessageCircle className="h-5 w-5" />
               Contáctanos por WhatsApp
             </a>
