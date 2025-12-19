@@ -1,5 +1,5 @@
 import { Target, Eye, Heart } from "lucide-react";
-import mariluImage from "@/assets/marilu-portrait.jpg";
+import mariluGraduation from "@/assets/marilu-graduation.jpg";
 export function AboutSection() {
   return <section id="nosotros" className="section-padding bg-muted">
       <div className="container-wide">
@@ -20,7 +20,7 @@ export function AboutSection() {
           {/* Marilú Profile */}
           <div className="relative">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden card-elevated">
-              <img alt="Marilú Nuñez - Asesora de Becas" className="w-full h-full object-cover" src="/lovable-uploads/b13ffb27-f624-4f1f-b803-dd7ae29e755b.jpg" />
+              <img alt="Marilú Nuñez - Asesora de Becas" className="w-full h-full object-cover" src={mariluGraduation} />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-xl">
               <p className="text-3xl font-bold">8+</p>
