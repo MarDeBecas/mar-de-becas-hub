@@ -17,9 +17,9 @@ const services = [{
   features: ["Mock interviews personalizadas", "Feedback detallado", "Técnicas de comunicación efectiva", "Manejo de nervios y confianza"]
 }, {
   icon: BookOpen,
-  title: "Talleres y Programas Grupales",
-  description: "Sesiones grupales diseñadas para quienes desean iniciar su camino hacia una beca con una comunidad de apoyo.",
-  features: ["Webinars informativos mensuales", "Bootcamps intensivos", "Grupos de estudio y accountability", "Networking con becarios exitosos"]
+  title: "Cursos de preparación para becas",
+  description: "Sesiones prácticas diseñadas para quienes desean postular exitosamente a becas internacionales.",
+  features: ["Sesiones prácticas para postular a becas internacionales", "Lista de becas internacionales", "Networking con becarios exitosos"]
 }];
 export function ServicesSection() {
   return <section id="servicios" className="section-padding bg-background">

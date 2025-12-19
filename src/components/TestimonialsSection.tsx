@@ -45,12 +45,9 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonios" className="section-padding bg-background">
+    <section id="testimonios" className="section-padding bg-background pt-0">
       <div className="container-wide">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
-            Testimonios
-          </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
             Historias de <span className="text-gradient">éxito real</span>
           </h2>
