@@ -61,7 +61,7 @@ export function ContactSection() {
                 Estamos aquí para resolver todas tus dudas.
               </p>
               <Button variant="hero" size="xl" className="w-full" asChild>
-                <a target="_blank" rel="noopener noreferrer" href=" wa.link/l8tsf6">
+                <a target="_blank" rel="noopener noreferrer" href="https://wa.link/mhr4d9">
                   <MessageCircle className="w-5 h-5" />
                   Escríbenos por WhatsApp
                 </a>
