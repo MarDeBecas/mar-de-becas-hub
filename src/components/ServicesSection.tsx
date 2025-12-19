@@ -9,7 +9,7 @@ const services = [{
   icon: FileText,
   title: "Preparación de Documentos",
   description: "Desarrollo y revisión de todos los documentos necesarios para tu aplicación, asegurando que cada palabra refleje tu potencial.",
-  features: ["Statement of Purpose personalizado", "Cartas de motivación", "CV académico internacional", "Research proposals"]
+  features: ["Ensayos para postular a becas", "Cartas de motivación", "CV académico internacional", "Revisión de otros documentos"]
 }, {
   icon: Users,
   title: "Preparación de Entrevistas",
@@ -19,7 +19,7 @@ const services = [{
   icon: BookOpen,
   title: "Cursos de preparación para becas",
   description: "Sesiones prácticas diseñadas para quienes desean postular exitosamente a becas internacionales.",
-  features: ["Sesiones prácticas para postular a becas internacionales", "Lista de becas internacionales", "Networking con becarios exitosos"]
+  features: ["Sesiones prácticas para postular a becas internacionales", "Lista de becas internacionales", "Plantillas modelo de aplicaciones", "Networking con becarios exitosos"]
 }];
 export function ServicesSection() {
   return <section id="servicios" className="section-padding bg-background">
