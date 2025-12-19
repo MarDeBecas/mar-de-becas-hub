@@ -9,7 +9,7 @@ export function HeroSection() {
     <section id="inicio" className="relative flex flex-col overflow-hidden">
       {/* Top Image */}
       <div className="w-full">
-        <img src={heroTopImage} alt="Becarios internacionales con banderas" className="w-full h-auto object-cover" />
+        <img src={heroBottomImage} alt="Becarios internacionales con banderas" className="w-full h-auto object-cover" />
       </div>
 
       {/* Main Hero Section */}
