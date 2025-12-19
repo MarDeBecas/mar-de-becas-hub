@@ -60,7 +60,7 @@ export function ServicesSection() {
 
         <div className="text-center mt-12">
           <Button variant="default" size="xl" asChild>
-            <a href=" wa.link/l8tsf6">Solicitar información de servicios</a>
+            <a href="https://wa.link/mhr4d9" target="_blank" rel="noopener noreferrer">Solicitar información de servicios</a>
           </Button>
         </div>
       </div>
