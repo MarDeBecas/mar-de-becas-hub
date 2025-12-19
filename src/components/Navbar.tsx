@@ -9,7 +9,6 @@ const navLinks = [
   { href: "#servicios", label: "Servicios" },
   { href: "#becas", label: "Becas" },
   { href: "#testimonios", label: "Testimonios" },
-  { href: "#recursos", label: "Recursos" },
   { href: "#contacto", label: "Contacto" },
 ];
 
