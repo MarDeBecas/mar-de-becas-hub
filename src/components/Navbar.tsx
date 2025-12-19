@@ -49,9 +49,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-primary ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                }`}
+                className="text-sm font-medium transition-colors duration-200 hover:text-primary text-foreground"
               >
                 {link.label}
               </a>
@@ -68,9 +66,9 @@ export function Navbar() {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+              <X className="h-6 w-6 text-foreground" />
             ) : (
-              <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+              <Menu className="h-6 w-6 text-foreground" />
             )}
           </button>
         </div>

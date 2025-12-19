@@ -13,7 +13,7 @@ export function HeroSection() {
       </div>
 
       {/* Main Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-center">
+      <div className="relative min-h-[80vh] flex items-center justify-center -mt-8">
         {/* Background Image */}
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
           backgroundImage: `url(${heroImage})`
@@ -87,10 +87,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom Image */}
-      <div className="w-full">
-        <img src={heroBottomImage} alt="Becarios internacionales reunidos" className="w-full h-auto object-cover" />
-      </div>
     </section>
   );
 }
