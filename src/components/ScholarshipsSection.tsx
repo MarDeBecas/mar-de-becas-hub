@@ -190,7 +190,7 @@ export function ScholarshipsSection() {
         <div className="text-center mt-12">
           <Button variant="default" size="lg" asChild>
             <a
-              href="https://wa.me/51999999999?text=Hola,%20necesito%20ayuda%20para%20aplicar%20a%20una%20beca"
+              href="https://wa.link/mhr4d9"
               target="_blank"
               rel="noopener noreferrer"
             >
