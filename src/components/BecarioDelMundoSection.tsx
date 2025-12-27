@@ -71,10 +71,10 @@ export function BecarioDelMundoSection() {
                 className="bg-card rounded-xl border border-border p-5 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+                  <span className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-base font-bold flex-shrink-0">
                     {session.number}
                   </span>
-                  <h4 className="font-semibold text-foreground">{session.title}</h4>
+                  <h4 className="text-xl font-bold text-foreground">{session.title}</h4>
                 </div>
                 <p className="text-sm text-muted-foreground">{session.description}</p>
               </div>
