@@ -4,9 +4,9 @@ import juntosImage from "@/assets/juntos.jpg";
 
 export function ContactSection() {
   return (
-    <section id="contacto" className="section-padding bg-background">
+    <section id="contacto" className="py-8 bg-background">
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
             Contacto
           </span>
@@ -42,7 +42,7 @@ export function ContactSection() {
         </div>
 
         {/* Social Links - Full Width */}
-        <div className="mt-16 pt-8 border-t border-border text-center">
+        <div className="mt-12 pt-8 border-t border-border text-center">
           <p className="text-lg text-muted-foreground mb-6">
             Síguenos en redes sociales
           </p>
