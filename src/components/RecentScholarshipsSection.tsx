@@ -1,4 +1,4 @@
-import { Calendar, ExternalLink, Clock } from "lucide-react";
+import { Calendar, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -13,7 +13,7 @@ interface Scholarship {
   isUrgent?: boolean;
 }
 
-const recentScholarships: Scholarship[] = [
+const scholarships: Scholarship[] = [
   {
     id: 1,
     name: "Beca Chevening",
@@ -66,6 +66,16 @@ const recentScholarships: Scholarship[] = [
   },
   {
     id: 6,
+    name: "Fundación Carolina",
+    country: "España",
+    flag: "🇪🇸",
+    deadline: "Jun 2026",
+    level: "Maestría",
+    coverage: "Parcial/Completo",
+    isUrgent: false,
+  },
+  {
+    id: 7,
     name: "Beca OEA",
     country: "América",
     flag: "🌎",
@@ -74,24 +84,36 @@ const recentScholarships: Scholarship[] = [
     coverage: "Hasta 80%",
     isUrgent: true,
   },
+  {
+    id: 8,
+    name: "Generación Bicentenario",
+    country: "Varios países",
+    flag: "🇵🇪",
+    deadline: "Jun 2026",
+    level: "Maestría",
+    coverage: "100%",
+    isUrgent: false,
+  },
 ];
 
 export const RecentScholarshipsSection = () => {
   return (
-    <section id="becas-recientes" className="py-20 bg-muted/30">
+    <section id="becas" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">
-            <Clock className="w-3 h-3 mr-1" />
-            Actualizado semanalmente
-          </Badge>
+          <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
+            Oportunidades Internacionales
+          </span>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Becas Más Recientes
+            Becas Destacadas
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Conoce las becas internacionales más prestigiosas para tu formación profesional.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentScholarships.map((scholarship) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {scholarships.map((scholarship) => (
             <div
               key={scholarship.id}
               className="bg-card rounded-xl border border-border p-5 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
@@ -105,7 +127,7 @@ export const RecentScholarshipsSection = () => {
                 </div>
                 {scholarship.isUrgent && (
                   <Badge variant="destructive" className="text-xs">
-                    ¡Próximo cierre!
+                    ¡Próximo!
                   </Badge>
                 )}
               </div>
