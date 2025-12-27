@@ -40,12 +40,14 @@ export function ServicesSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => <div key={index} className="bg-card rounded-2xl p-8 card-elevated group hover:bg-primary transition-colors duration-300">
-              <div className="w-14 h-14 bg-primary/10 group-hover:bg-primary-foreground/20 rounded-xl flex items-center justify-center mb-6 transition-colors">
-                <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 bg-primary/10 group-hover:bg-primary-foreground/20 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
+                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground group-hover:text-primary-foreground transition-colors">
+                  {service.title}
+                </h3>
               </div>
-              <h3 className="text-xl font-bold text-foreground group-hover:text-primary-foreground mb-4 transition-colors">
-                {service.title}
-              </h3>
               <p className="text-muted-foreground group-hover:text-primary-foreground/80 mb-6 transition-colors">
                 {service.description}
               </p>
