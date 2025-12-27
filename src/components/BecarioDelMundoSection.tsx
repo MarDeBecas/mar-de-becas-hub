@@ -1,4 +1,4 @@
-import { Globe, Rocket, Gift, BookOpen, Users, Target, FileText, Mic, CheckCircle } from "lucide-react";
+import { Globe, Rocket, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -32,24 +32,6 @@ const sessions = [
     number: 6,
     title: "Pitch Personal y Simulación de Entrevista",
     description: "Entrenamiento ante jurados con simulación de entrevista real y feedback inmediato.",
-  },
-];
-
-const resources = [
-  {
-    icon: FileText,
-    title: "Modelos Ganadores",
-    description: "Plantillas de CV, cartas de motivación y guiones de pitch.",
-  },
-  {
-    icon: BookOpen,
-    title: "Información Actualizada",
-    description: "Acceso a listas de becas vigentes y materiales de apoyo.",
-  },
-  {
-    icon: Users,
-    title: "Comunidad y Certificación",
-    description: "Certificado de participación y comunidad de apoyo para aspirantes.",
   },
 ];
 
@@ -100,24 +82,6 @@ export function BecarioDelMundoSection() {
           </div>
         </div>
 
-        {/* Resources */}
-        <div className="bg-card rounded-2xl border border-border p-8 mb-12">
-          <h3 className="font-serif text-2xl font-bold text-foreground text-center mb-8">
-            <Gift className="inline-block w-6 h-6 mr-2 text-primary" />
-            Recursos Exclusivos
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {resources.map((resource, index) => (
-              <div key={index} className="text-center">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <resource.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h4 className="font-semibold text-foreground mb-2">{resource.title}</h4>
-                <p className="text-sm text-muted-foreground">{resource.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* CTA */}
         <div className="text-center">
