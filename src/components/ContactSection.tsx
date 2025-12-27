@@ -20,38 +20,24 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            {/* Left - Contact Info */}
-            <div className="bg-primary rounded-2xl p-8 text-primary-foreground text-center">
-              <h3 className="text-2xl font-bold mb-4">
-                ¿Prefieres contacto directo?
-              </h3>
-              <p className="opacity-90 mb-8">
-                Escríbenos por WhatsApp y te responderemos en menos de 24 horas. 
-                Estamos aquí para resolver todas tus dudas.
-              </p>
-              <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
-                <a target="_blank" rel="noopener noreferrer" href="https://wa.link/mhr4d9">
-                  <MessageCircle className="w-5 h-5" />
-                  Escríbenos por WhatsApp
-                </a>
-              </Button>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col items-center">
+            <div className="rounded-2xl overflow-hidden shadow-xl w-full">
+              <img 
+                src={juntosImage} 
+                alt="Becarios graduados celebrando juntos" 
+                className="w-full h-auto object-cover"
+              />
             </div>
-
-            {/* Right - Image */}
-            <div className="flex flex-col items-center">
-              <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img 
-                  src={juntosImage} 
-                  alt="Becarios graduados celebrando juntos" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <p className="mt-6 text-xl md:text-2xl font-bold text-foreground text-center">
-                Sé un becario global. Te ayudamos a lograrlo
-              </p>
-            </div>
+            <p className="mt-6 text-xl md:text-2xl font-bold text-foreground text-center">
+              Sé un becario global. Te ayudamos a lograrlo
+            </p>
+            <Button variant="default" size="lg" className="mt-4" asChild>
+              <a target="_blank" rel="noopener noreferrer" href="https://wa.link/mhr4d9">
+                <MessageCircle className="w-5 h-5" />
+                Contáctanos
+              </a>
+            </Button>
           </div>
         </div>
 
