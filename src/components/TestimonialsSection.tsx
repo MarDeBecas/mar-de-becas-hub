@@ -64,23 +64,13 @@ function useScrollAnimation() {
   return { ref, isVisible };
 }
 
-function TestimonialCard({ testimonial, index }: { testimonial: typeof testimonials[0]; index: number }) {
-  const { ref, isVisible } = useScrollAnimation();
-
+function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
-    <div
-      ref={ref}
-      className={`bg-card rounded-2xl p-8 card-elevated relative transition-all duration-500 transform ${
-        isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-8'
-      }`}
-      style={{ transitionDelay: `${index * 150}ms` }}
-    >
-      <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10" />
+    <div className="bg-card rounded-2xl p-6 card-elevated relative flex-shrink-0 w-80 md:w-96">
+      <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10" />
       
-      <div className="flex items-center gap-4 mb-6">
-        <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+      <div className="flex items-center gap-4 mb-4">
+        <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
           <img 
             src={testimonial.image} 
             alt={testimonial.name}
@@ -88,10 +78,10 @@ function TestimonialCard({ testimonial, index }: { testimonial: typeof testimoni
           />
         </div>
         <div>
-          <h4 className="font-bold text-foreground">
+          <h4 className="font-bold text-foreground text-sm">
             {testimonial.name}
           </h4>
-          <p className="text-sm text-primary font-medium">
+          <p className="text-xs text-primary font-medium">
             {testimonial.scholarship}
           </p>
           <p className="text-xs text-muted-foreground">
@@ -100,13 +90,13 @@ function TestimonialCard({ testimonial, index }: { testimonial: typeof testimoni
         </div>
       </div>
 
-      <p className="text-muted-foreground leading-relaxed mb-6 italic">
+      <p className="text-muted-foreground text-sm leading-relaxed mb-4 italic line-clamp-4">
         "{testimonial.quote}"
       </p>
 
       <div className="flex items-center gap-1">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+          <Star key={i} className="w-3 h-3 fill-accent text-accent" />
         ))}
       </div>
     </div>
@@ -117,7 +107,7 @@ export function TestimonialsSection() {
   return (
     <section id="testimonios" className="section-padding bg-background">
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Testimonios
           </h2>
@@ -127,10 +117,12 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
-          ))}
+        <div className="overflow-x-auto pb-4">
+          <div className="flex gap-6 min-w-max px-4">
+            {testimonials.map((testimonial) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
