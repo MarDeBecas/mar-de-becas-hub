@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import emmyImage from "@/assets/testimonial-emmy.jpg";
 import nayvImage from "@/assets/testimonial-nayvi.jpg";
 import royImage from "@/assets/testimonial-roy.jpg";
@@ -38,8 +39,83 @@ const testimonials = [{
   image: wendyImage
 }];
 
+function useScrollAnimation() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, isVisible };
+}
+
+function TestimonialCard({ testimonial, index }: { testimonial: typeof testimonials[0]; index: number }) {
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <div
+      ref={ref}
+      className={`bg-card rounded-2xl p-8 card-elevated relative transition-all duration-500 transform ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-8'
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
+      <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10" />
+      
+      <div className="flex items-center gap-4 mb-6">
+        <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+          <img 
+            src={testimonial.image} 
+            alt={testimonial.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <h4 className="font-bold text-foreground">
+            {testimonial.name}
+          </h4>
+          <p className="text-sm text-primary font-medium">
+            {testimonial.scholarship}
+          </p>
+          <p className="text-xs text-muted-foreground">
+            {testimonial.university}
+          </p>
+        </div>
+      </div>
+
+      <p className="text-muted-foreground leading-relaxed mb-6 italic">
+        "{testimonial.quote}"
+      </p>
+
+      <div className="flex items-center gap-1">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function TestimonialsSection() {
-  return <section id="testimonios" className="section-padding bg-background">
+  return (
+    <section id="testimonios" className="section-padding bg-background">
       <div className="container-wide">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -52,39 +128,11 @@ export function TestimonialsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => <div key={testimonial.id} className="bg-card rounded-2xl p-8 card-elevated relative">
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10" />
-              
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-foreground">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-primary font-medium">
-                    {testimonial.scholarship}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {testimonial.university}
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-muted-foreground leading-relaxed mb-6 italic">
-                "{testimonial.quote}"
-              </p>
-
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-accent text-accent" />)}
-              </div>
-            </div>)}
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
