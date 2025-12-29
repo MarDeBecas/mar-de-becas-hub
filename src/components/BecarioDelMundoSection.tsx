@@ -98,13 +98,18 @@ export function BecarioDelMundoSection() {
 
 
         {/* Images Section */}
-        <div className="mb-8 grid md:grid-cols-2 gap-6 items-center">
-          <div className="rounded-xl overflow-hidden shadow-xl">
-            <img 
-              src={becarioGroupImage} 
-              alt="Participantes del programa Becario del Mundo" 
-              className="w-full h-auto object-cover"
-            />
+        <div className="mb-16 grid md:grid-cols-2 gap-6 items-start">
+          <div>
+            <div className="rounded-xl overflow-hidden shadow-xl">
+              <img 
+                src={becarioGroupImage} 
+                alt="Participantes del programa Becario del Mundo" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <p className="mt-4 text-sm md:text-base text-white/90 leading-relaxed">
+              Más de 36 participantes en nuestra primera edición se formaron con nosotros para ganar su primera beca internacional y nos recomiendan
+            </p>
           </div>
           <div className="rounded-xl overflow-hidden shadow-xl">
             <img 
@@ -113,13 +118,6 @@ export function BecarioDelMundoSection() {
               className="w-full h-auto object-cover"
             />
           </div>
-        </div>
-
-        {/* Testimonial Text */}
-        <div className="text-center mb-16">
-          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white max-w-4xl mx-auto leading-relaxed">
-            Más de 36 participantes en nuestra primera edición se formaron con nosotros para ganar su primera beca internacional y nos recomiendan
-          </p>
         </div>
 
         {/* CTA */}
