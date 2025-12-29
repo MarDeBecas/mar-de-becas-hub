@@ -82,15 +82,15 @@ export function BecarioDelMundoSection() {
             {sessions.map((session) => (
               <div
                 key={session.number}
-                className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-5 hover:bg-white/20 transition-all duration-300 hover:-translate-y-1"
+                className="bg-white rounded-xl shadow-lg p-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center text-base font-bold flex-shrink-0">
+                  <span className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-base font-bold flex-shrink-0">
                     {session.number}
                   </span>
-                  <h4 className="text-xl font-bold text-white">{session.title}</h4>
+                  <h4 className="text-xl font-bold text-foreground">{session.title}</h4>
                 </div>
-                <p className="text-sm text-white/80">{session.description}</p>
+                <p className="text-sm text-muted-foreground">{session.description}</p>
               </div>
             ))}
           </div>
