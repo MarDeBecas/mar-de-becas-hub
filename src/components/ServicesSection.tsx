@@ -1,5 +1,7 @@
 import { FileText, Users, BookOpen, GraduationCap, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useEffect, useRef, useState } from "react";
+
 const services = [{
   icon: GraduationCap,
   title: "Asesoría de diagnóstico de perfil",
@@ -21,8 +23,70 @@ const services = [{
   description: "Simulacros y coaching para que llegues seguro y preparado a cada entrevista, ya sea presencial o virtual.",
   features: ["Mock interviews personalizadas", "Feedback detallado", "Técnicas de comunicación efectiva", "Manejo de nervios y confianza"]
 }];
+
+function useScrollAnimation() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, isVisible };
+}
+function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+  const { ref, isVisible } = useScrollAnimation();
+  
+  return (
+    <div
+      ref={ref}
+      className={`bg-card rounded-2xl p-8 card-elevated group hover:bg-primary transition-all duration-500 transform ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-8'
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
+      <div className="flex items-center gap-4 mb-6">
+        <div className="w-14 h-14 bg-primary/10 group-hover:bg-primary-foreground/20 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
+          <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+        </div>
+        <h3 className="text-xl font-bold text-foreground group-hover:text-primary-foreground transition-colors">
+          {service.title}
+        </h3>
+      </div>
+      <p className="text-muted-foreground group-hover:text-primary-foreground/80 mb-6 transition-colors">
+        {service.description}
+      </p>
+      <ul className="space-y-3">
+        {service.features.map((feature, idx) => (
+          <li key={idx} className="flex items-center gap-3 text-sm text-muted-foreground group-hover:text-primary-foreground/80 transition-colors">
+            <CheckCircle className="w-4 h-4 text-accent group-hover:text-primary-foreground flex-shrink-0" />
+            {feature}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function ServicesSection() {
-  return <section id="servicios" className="section-padding bg-background">
+  return (
+    <section id="servicios" className="section-padding bg-background">
       <div className="container-wide">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
@@ -39,25 +103,9 @@ export function ServicesSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => <div key={index} className="bg-card rounded-2xl p-8 card-elevated group hover:bg-primary transition-colors duration-300">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-primary/10 group-hover:bg-primary-foreground/20 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
-                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground group-hover:text-primary-foreground transition-colors">
-                  {service.title}
-                </h3>
-              </div>
-              <p className="text-muted-foreground group-hover:text-primary-foreground/80 mb-6 transition-colors">
-                {service.description}
-              </p>
-              <ul className="space-y-3">
-                {service.features.map((feature, idx) => <li key={idx} className="flex items-center gap-3 text-sm text-muted-foreground group-hover:text-primary-foreground/80 transition-colors">
-                    <CheckCircle className="w-4 h-4 text-accent group-hover:text-primary-foreground flex-shrink-0" />
-                    {feature}
-                  </li>)}
-              </ul>
-            </div>)}
+          {services.map((service, index) => (
+            <ServiceCard key={index} service={service} index={index} />
+          ))}
         </div>
 
         <div className="text-center mt-12">
@@ -66,5 +114,6 @@ export function ServicesSection() {
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
