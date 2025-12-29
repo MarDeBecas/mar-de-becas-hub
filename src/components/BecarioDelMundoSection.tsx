@@ -56,7 +56,10 @@ export function BecarioDelMundoSection() {
             <Globe className="w-4 h-4 mr-2" />
             Programa Intensivo
           </Badge>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
+          <p className="text-white/90 text-lg mb-2">
+            Curso Intensivo en Becas Internacionales
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             Becario del Mundo
           </h2>
           <p className="text-white/90 max-w-2xl mx-auto text-lg">
@@ -95,7 +98,7 @@ export function BecarioDelMundoSection() {
 
 
         {/* Images Section */}
-        <div className="mb-16 grid md:grid-cols-2 gap-6 items-center">
+        <div className="mb-8 grid md:grid-cols-2 gap-6 items-center">
           <div className="rounded-xl overflow-hidden shadow-xl">
             <img 
               src={becarioGroupImage} 
@@ -110,6 +113,13 @@ export function BecarioDelMundoSection() {
               className="w-full h-auto object-cover"
             />
           </div>
+        </div>
+
+        {/* Testimonial Text */}
+        <div className="text-center mb-16">
+          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white max-w-4xl mx-auto leading-relaxed">
+            Más de 36 participantes en nuestra primera edición se formaron con nosotros para ganar su primera beca internacional y nos recomiendan
+          </p>
         </div>
 
         {/* CTA */}
