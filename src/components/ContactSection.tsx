@@ -6,9 +6,11 @@ export function ContactSection() {
   return (
     <section 
       id="contacto" 
-      className="py-8 relative"
+      className="py-16 relative"
       style={{
-        backgroundImage: `linear-gradient(to bottom, hsl(var(--primary) / 0.95), hsl(var(--primary) / 0.9))`,
+        backgroundImage: `linear-gradient(to bottom, hsl(var(--primary) / 0.85), hsl(var(--primary) / 0.9)), url(${juntosImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       <div className="container-wide">
@@ -27,17 +29,10 @@ export function ContactSection() {
 
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col items-center">
-            <div className="rounded-2xl overflow-hidden shadow-xl w-full">
-              <img 
-                src={juntosImage} 
-                alt="Becarios graduados celebrando juntos" 
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <p className="mt-6 text-xl md:text-2xl font-bold text-white text-center">
+            <p className="text-xl md:text-2xl font-bold text-white text-center">
               Sé un becario global. Te ayudamos a lograrlo
             </p>
-            <Button variant="secondary" size="lg" className="mt-4 bg-white text-primary hover:bg-white/90" asChild>
+            <Button variant="secondary" size="lg" className="mt-6 bg-white text-primary hover:bg-white/90" asChild>
               <a target="_blank" rel="noopener noreferrer" href="https://wa.link/mhr4d9">
                 <MessageCircle className="w-5 h-5" />
                 Contáctanos
