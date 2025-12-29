@@ -2,6 +2,8 @@ import { Globe, Rocket, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import heroScholarshipImage from "@/assets/hero-scholarship.jpg";
+import becarioGroupImage from "@/assets/becario-del-mundo-group.png";
+import reviewsImage from "@/assets/reviews.png";
 
 const sessions = [
   {
@@ -91,6 +93,24 @@ export function BecarioDelMundoSection() {
           </div>
         </div>
 
+
+        {/* Images Section */}
+        <div className="mb-16 grid md:grid-cols-2 gap-6 items-center">
+          <div className="rounded-xl overflow-hidden shadow-xl">
+            <img 
+              src={becarioGroupImage} 
+              alt="Participantes del programa Becario del Mundo" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="rounded-xl overflow-hidden shadow-xl">
+            <img 
+              src={reviewsImage} 
+              alt="Reseñas de participantes del programa" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
 
         {/* CTA */}
         <div className="text-center">

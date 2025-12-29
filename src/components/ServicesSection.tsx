@@ -2,24 +2,24 @@ import { FileText, Users, BookOpen, GraduationCap, CheckCircle } from "lucide-re
 import { Button } from "@/components/ui/button";
 const services = [{
   icon: GraduationCap,
-  title: "Asesoría Integral para Becas",
-  description: "Acompañamiento completo desde la selección de programas hasta la postulación final. Analizamos tu perfil y encontramos las becas que mejor se ajustan a tus metas.",
-  features: ["Análisis de perfil académico y profesional", "Selección estratégica de becas", "Planificación de timeline de postulación", "Seguimiento continuo del proceso"]
+  title: "Asesoría de diagnóstico de perfil",
+  description: "Analizamos tu perfil y encontramos las becas que mejor se ajustan a tus metas.",
+  features: ["Análisis de perfil académico y profesional", "Selección estratégica de becas", "Planificación de timeline de postulación", "Resumen personalizado de las becas más adecuadas para ti"]
 }, {
   icon: FileText,
   title: "Preparación de Documentos",
   description: "Desarrollo y revisión de todos los documentos necesarios para tu aplicación, asegurando que cada palabra refleje tu potencial.",
   features: ["Ensayos para postular a becas", "Cartas de motivación", "CV académico internacional", "Revisión de otros documentos"]
 }, {
+  icon: BookOpen,
+  title: "Postulación a beca completa",
+  description: "Acompañamiento completo desde la selección de programas hasta la postulación final.",
+  features: ["Revisión de requisitos en la plataforma oficial", "Revisión y validación de documentos necesarios", "Acompañamiento para la entrevista", "Sesiones individuales de feedback personalizado"]
+}, {
   icon: Users,
   title: "Preparación de Entrevistas",
   description: "Simulacros y coaching para que llegues seguro y preparado a cada entrevista, ya sea presencial o virtual.",
   features: ["Mock interviews personalizadas", "Feedback detallado", "Técnicas de comunicación efectiva", "Manejo de nervios y confianza"]
-}, {
-  icon: BookOpen,
-  title: "Cursos de preparación para becas",
-  description: "Sesiones prácticas diseñadas para quienes desean postular exitosamente a becas internacionales.",
-  features: ["Sesiones prácticas para postular a becas internacionales", "Lista de becas internacionales", "Plantillas modelo de aplicaciones", "Networking con becarios exitosos"]
 }];
 export function ServicesSection() {
   return <section id="servicios" className="section-padding bg-background">
