@@ -1,5 +1,23 @@
 import { Target, Eye, Heart } from "lucide-react";
 import mariluGraduation from "@/assets/marilu-graduation.jpg";
+import { useCountUp } from "@/hooks/useCountUp";
+
+function ImpactCounter({ end, label, suffix = "+" }: { end: number; label: string; suffix?: string }) {
+  const { count, ref } = useCountUp({ end, duration: 2000 });
+  
+  return (
+    <div 
+      ref={ref} 
+      className="text-center p-4 bg-primary/5 rounded-xl animate-fade-in"
+    >
+      <p className="text-2xl font-bold text-primary">
+        {count}{suffix}
+      </p>
+      <p className="text-sm text-muted-foreground">{label}</p>
+    </div>
+  );
+}
+
 export function AboutSection() {
   return <section id="nosotros" className="section-padding bg-muted">
       <div className="container-wide">
@@ -40,18 +58,9 @@ export function AboutSection() {
             
             <h4 className="text-xl font-bold text-foreground pt-4">Nuestro impacto</h4>
             <div className="grid grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-primary/5 rounded-xl">
-                <p className="text-2xl font-bold text-primary">80+</p>
-                <p className="text-sm text-muted-foreground">Asesorados</p>
-              </div>
-              <div className="text-center p-4 bg-primary/5 rounded-xl">
-                <p className="text-2xl font-bold text-primary">10+</p>
-                <p className="text-sm text-muted-foreground">Aliados</p>
-              </div>
-              <div className="text-center p-4 bg-primary/5 rounded-xl">
-                <p className="text-2xl font-bold text-primary">1000+</p>
-                <p className="text-sm text-muted-foreground">Miembros en nuestra comunidad</p>
-              </div>
+              <ImpactCounter end={80} label="Asesorados" />
+              <ImpactCounter end={10} label="Aliados" />
+              <ImpactCounter end={1000} label="Miembros en nuestra comunidad" />
             </div>
             <div className="flex gap-4 pt-4">
               <a href="https://www.linkedin.com/in/marilu-nu%C3%B1ez-sanchez/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
