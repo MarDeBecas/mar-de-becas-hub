@@ -53,30 +53,6 @@ export function HeroSection() {
               </a>
             </Button>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-fade-up opacity-0 stagger-5">
-            {[{
-              number: "80+",
-              label: "Becarios asesorados"
-            }, {
-              number: "10",
-              label: "Aliados"
-            }, {
-              number: "95%",
-              label: "Tasa de éxito"
-            }, {
-              number: "8",
-              label: "Años de experiencia"
-            }].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-1">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-primary-foreground/70">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Scroll Indicator */}
