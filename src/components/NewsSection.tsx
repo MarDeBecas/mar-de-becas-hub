@@ -4,38 +4,46 @@ import newsCierreBecario from "@/assets/news-cierre-becario.jpg";
 import newsPronabec from "@/assets/news-pronabec.jpg";
 import newsBlueStudies from "@/assets/news-blue-studies.jpg";
 import newsAiesec from "@/assets/news-aiesec.png";
+import newsImpacto2025 from "@/assets/news-impacto-2025.jpg";
 
 const newsItems = [
   {
     id: 1,
+    title: "Impacto 2025",
+    description: "Nuestro impacto en la comunidad de becarios este año.",
+    url: "https://www.linkedin.com/posts/mardebecas_impactomar-de-becas-activity-7412133452214579200-ivUe?utm_source=share&utm_medium=member_desktop&rcm=ACoAABPIVs4BdVcLbbdcEIGyw8c3MxGmABxi0KA",
+    image: newsImpacto2025
+  },
+  {
+    id: 2,
     title: "Hace un año nació Mar de Becas",
     description: "Una plataforma dedicada a hacer realidad los sueños académicos internacionales.",
     url: "https://www.linkedin.com/posts/marilu-nu%C3%B1ez-sanchez_hace-un-a%C3%B1o-naci%C3%B3-mar-de-becas-una-plataforma-activity-7410703523736088576-M6C3?utm_source=share&utm_medium=member_desktop&rcm=ACoAABPIVs4BdVcLbbdcEIGyw8c3MxGmABxi0KA",
     image: newsAniversario
   },
   {
-    id: 2,
+    id: 3,
     title: "Cierre de Becario del Mundo",
     description: "Conoce las experiencias de nuestros becarios que lograron sus metas.",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7362205992375177218/",
     image: newsCierreBecario
   },
   {
-    id: 3,
+    id: 4,
     title: "Mar de Becas y Blue Studies",
     description: "Alianza estratégica para impulsar becas internacionales.",
     url: "https://www.linkedin.com/posts/marilu-nu%C3%B1ez-sanchez_mardebecas-bluestudies-becasinternacionales-activity-7397619878909865984-23HD?utm_source=share&utm_medium=member_desktop&rcm=ACoAABPIVs4BdVcLbbdcEIGyw8c3MxGmABxi0KA",
     image: newsBlueStudies
   },
   {
-    id: 4,
+    id: 5,
     title: "Somos Embajadores PRONABEC",
     description: "Voces que guían el camino hacia las becas internacionales.",
     url: "https://www.linkedin.com/posts/marilu-nu%C3%B1ez-sanchez_bicentenario-chevening-vocesqueguaedan-activity-7365744777100763136-Cdwi?utm_source=share&utm_medium=member_desktop&rcm=ACoAABPIVs4BdVcLbbdcEIGyw8c3MxGmABxi0KA",
     image: newsPronabec
   },
   {
-    id: 5,
+    id: 6,
     title: "Semana de las Experiencias AIESEC",
     description: "Mi camino de liderazgo a través de becas internacionales.",
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7407513742248194049",
@@ -56,7 +64,7 @@ export function NewsSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
           {newsItems.map((item) => (
             <a
               key={item.id}
