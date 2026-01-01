@@ -35,9 +35,24 @@ export function AboutSection() {
             <p className="text-primary font-medium text-lg">
               Fundadora & Asesora Principal
             </p>
-            <p className="text-muted-foreground leading-relaxed">Marilu Nuñez es fundadora de Mar de Becas y asesora especializada en becas internacionales de posgrado. Es Ingeniera Industrial y cuenta con un MSc en Emprendimiento e Innovación en The University of Edinburgh (Reino Unido). Con más de ocho años de experiencia, ha acompañado a jóvenes peruanos y latinoamericanos a ingresar a universidades de prestigio en el extranjero, logrando becas cubiertas al 100% en países como Australia, Reino Unido e Irlanda.</p>
-            <p className="text-muted-foreground leading-relaxed">Fue ganadora de la Beca Generación del Bicentenario 2024 para cursar estudios de posgrado en el Reino Unido y finalista de la Beca Chevening 2024. Además, ha sido seleccionada como becaria en foros internacionales de liderazgo juvenil en Italia y Países Bajos, y reconocida como joven líder por la Cámara de Comercio de Lima, así como embajadora oficial de PRONABEC.</p>
-            <p className="text-muted-foreground leading-relaxed">Su trayectoria profesional incluye el liderazgo de proyectos sociales, voluntariado internacional en Brasil y Chile, y experiencia como consultora en proyectos de innovación y emprendimiento. Estas vivencias, junto con su propio recorrido en procesos altamente competitivos de postulación, le permiten comprender de primera mano los retos académicos, emocionales y estratégicos que enfrentan los postulantes.</p>
+            <p className="text-muted-foreground leading-relaxed">Marilu Nuñez es fundadora de Mar de Becas y asesora especializada en becas internacionales de posgrado. Es Ingeniera Industrial y cuenta con un <strong className="text-foreground font-semibold">MSc en Emprendimiento e Innovación en The University of Edinburgh (Reino Unido)</strong>. Con más de ocho años de experiencia, ha acompañado a jóvenes peruanos y latinoamericanos a ingresar a universidades de prestigio en el extranjero, logrando becas cubiertas al 100% en países como <strong className="text-foreground font-semibold">Australia, Reino Unido e Irlanda.</strong></p>
+            <p className="text-muted-foreground leading-relaxed">Fue ganadora de la <strong className="text-foreground font-semibold">Beca Generación del Bicentenario 2024</strong> para cursar estudios de posgrado en el Reino Unido y finalista de la <strong className="text-foreground font-semibold">Beca Chevening 2024</strong>. Además, ha sido seleccionada como becaria en foros internacionales de liderazgo juvenil en Italia y Países Bajos, y reconocida como <strong className="text-foreground font-semibold">joven líder por la Cámara de Comercio de Lima</strong>, así como <strong className="text-foreground font-semibold">embajadora oficial de PRONABEC</strong>.</p>
+            
+            <h4 className="text-xl font-bold text-foreground pt-4">Nuestro impacto</h4>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center p-4 bg-primary/5 rounded-xl">
+                <p className="text-2xl font-bold text-primary">80+</p>
+                <p className="text-sm text-muted-foreground">Asesorados</p>
+              </div>
+              <div className="text-center p-4 bg-primary/5 rounded-xl">
+                <p className="text-2xl font-bold text-primary">10+</p>
+                <p className="text-sm text-muted-foreground">Aliados</p>
+              </div>
+              <div className="text-center p-4 bg-primary/5 rounded-xl">
+                <p className="text-2xl font-bold text-primary">1000+</p>
+                <p className="text-sm text-muted-foreground">Miembros en nuestra comunidad</p>
+              </div>
+            </div>
             <div className="flex gap-4 pt-4">
               <a href="https://www.linkedin.com/in/marilu-nu%C3%B1ez-sanchez/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

@@ -90,7 +90,7 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] 
         </div>
       </div>
 
-      <p className="text-muted-foreground text-sm leading-relaxed mb-4 italic line-clamp-4">
+      <p className="text-muted-foreground text-sm leading-relaxed mb-4 italic">
         "{testimonial.quote}"
       </p>
 
