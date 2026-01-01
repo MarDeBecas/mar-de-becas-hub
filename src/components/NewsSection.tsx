@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import newsAniversario from "@/assets/news-aniversario.jpg";
 import newsCierreBecario from "@/assets/news-cierre-becario.jpg";
 import newsPronabec from "@/assets/news-pronabec.jpg";
@@ -51,6 +52,64 @@ const newsItems = [
   }
 ];
 
+function NewsCard({ item, index }: { item: typeof newsItems[0]; index: number }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <a
+      ref={ref}
+      key={item.id}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group bg-card rounded-xl overflow-hidden card-elevated hover:shadow-xl transition-all duration-500 hover:-translate-y-1 ${
+        isVisible 
+          ? "opacity-100 translate-y-0" 
+          : "opacity-0 translate-y-8"
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div className="aspect-video overflow-hidden">
+        <img 
+          src={item.image} 
+          alt={item.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <div className="p-5">
+        <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+          {item.title}
+        </h3>
+        <p className="text-sm text-muted-foreground line-clamp-2">
+          {item.description}
+        </p>
+        <div className="mt-3 flex items-center gap-1 text-primary text-sm font-medium">
+          <span>Ver en LinkedIn</span>
+          <ExternalLink className="w-4 h-4" />
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export function NewsSection() {
   return (
     <section id="noticias" className="section-padding bg-background">
@@ -65,34 +124,8 @@ export function NewsSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-          {newsItems.map((item) => (
-            <a
-              key={item.id}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-card rounded-xl overflow-hidden card-elevated hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="aspect-video overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted-foreground line-clamp-2">
-                  {item.description}
-                </p>
-                <div className="mt-3 flex items-center gap-1 text-primary text-sm font-medium">
-                  <span>Ver en LinkedIn</span>
-                  <ExternalLink className="w-4 h-4" />
-                </div>
-              </div>
-            </a>
+          {newsItems.map((item, index) => (
+            <NewsCard key={item.id} item={item} index={index} />
           ))}
         </div>
       </div>
