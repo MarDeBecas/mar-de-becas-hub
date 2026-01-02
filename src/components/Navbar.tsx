@@ -40,6 +40,7 @@ export function Navbar() {
               alt="Mar de Becas"
               className="h-14 w-auto object-contain"
             />
+            <span className="text-foreground font-bold text-xl">Mar de Becas</span>
           </a>
 
           {/* Desktop Navigation */}
