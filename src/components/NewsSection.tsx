@@ -123,7 +123,7 @@ export function NewsSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsItems.map((item, index) => (
             <NewsCard key={item.id} item={item} index={index} />
           ))}
