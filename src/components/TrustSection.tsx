@@ -9,6 +9,7 @@ import logoEnc from "@/assets/logo-enc.jpg";
 import logoCreateLatam from "@/assets/logo-create-latam.jpg";
 import logoYo from "@/assets/logo-yo.png";
 import logoRedInternacional from "@/assets/logo-red-internacional.jpg";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -57,6 +58,13 @@ export function TrustSection() {
               align: "start",
               loop: true,
             }}
+            plugins={[
+              Autoplay({
+                delay: 2000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+              }),
+            ]}
             className="w-full"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
