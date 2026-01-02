@@ -9,8 +9,7 @@ const footerLinks = {
   ],
   recursos: [
     { label: "Becas Destacadas", href: "#becas" },
-    { label: "Guías Gratuitas", href: "#recursos" },
-    { label: "Blog", href: "#" },
+    { label: "Noticias", href: "#noticias" },
     { label: "FAQ", href: "#" },
   ],
   legal: [

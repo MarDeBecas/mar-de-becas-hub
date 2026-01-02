@@ -9,7 +9,7 @@ const navLinks = [
   { href: "#servicios", label: "Servicios" },
   { href: "#becas", label: "Becas" },
   { href: "#testimonios", label: "Testimonios" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "#noticias", label: "Noticias" },
 ];
 
 export function Navbar() {
@@ -53,9 +53,11 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <Button variant={isScrolled ? "default" : "hero"} size="sm">
-              Contáctanos
-            </Button>
+            <a href="#contacto">
+              <Button variant={isScrolled ? "default" : "hero"} size="sm">
+                Contáctanos
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,9 +88,11 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" className="mt-4">
-                Contáctanos
-              </Button>
+              <a href="#contacto" onClick={() => setIsOpen(false)}>
+                <Button variant="default" className="mt-4 w-full">
+                  Contáctanos
+                </Button>
+              </a>
             </div>
           </div>
         )}
