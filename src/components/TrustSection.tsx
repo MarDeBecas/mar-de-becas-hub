@@ -43,13 +43,6 @@ export function TrustSection() {
             Confían en nosotros
           </h2>
         </div>
-        <div className="flex justify-center mb-12">
-          <img 
-            src={aliadosImage} 
-            alt="Organizaciones aliadas de Mar de Becas" 
-            className="max-w-full h-auto"
-          />
-        </div>
         
         {/* Logo Carousel */}
         <div className="w-full px-4 md:px-12">
