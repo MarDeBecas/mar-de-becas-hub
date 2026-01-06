@@ -7,7 +7,7 @@ const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#nosotros", label: "Nosotros" },
   { href: "#servicios", label: "Servicios" },
-  { href: "#becas", label: "Becas" },
+  { href: "https://beca-mentor-pro.lovable.app", label: "Becas", external: true },
   { href: "#testimonios", label: "Testimonios" },
   { href: "#noticias", label: "Noticias" },
 ];
@@ -49,6 +49,8 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 className="text-sm font-medium transition-colors duration-200 hover:text-primary text-foreground"
               >
                 {link.label}
@@ -83,6 +85,8 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   className="text-foreground font-medium py-2 hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
