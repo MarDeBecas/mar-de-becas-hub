@@ -2,14 +2,14 @@ import { Target, Eye, Heart, GraduationCap, Users, UserCheck } from "lucide-reac
 import mariluGraduation from "@/assets/marilu-graduation.jpg";
 import { useCountUp } from "@/hooks/useCountUp";
 
-function ImpactCounter({ end, label, suffix = "+", prefix = "", formatNumber = false, icon: Icon }: { end: number; label: string; suffix?: string; prefix?: string; formatNumber?: boolean; icon?: React.ComponentType<{ className?: string }> }) {
+function ImpactCounter({ end, label, suffix = "+", prefix = "", formatNumber = false, icon: Icon, isStatic = false }: { end: number; label: string; suffix?: string; prefix?: string; formatNumber?: boolean; icon?: React.ComponentType<{ className?: string }>; isStatic?: boolean }) {
   const { count, ref } = useCountUp({ end, duration: 2000 });
   
-  const displayValue = formatNumber ? count.toLocaleString('en-US') : count;
+  const displayValue = formatNumber ? (isStatic ? end.toLocaleString('en-US') : count.toLocaleString('en-US')) : (isStatic ? end : count);
   
   return (
     <div 
-      ref={ref} 
+      ref={!isStatic ? ref : undefined} 
       className="text-center p-4 bg-primary/5 rounded-xl animate-fade-in"
     >
       {Icon && (
@@ -66,7 +66,7 @@ export function AboutSection() {
             <h4 className="text-xl font-bold text-foreground pt-4">Nuestro impacto</h4>
             <div className="grid grid-cols-3 gap-4">
               <ImpactCounter end={80} label="Asesorados" icon={UserCheck} />
-              <ImpactCounter end={519364} label="en becas completas" prefix="US$ " suffix="" formatNumber={true} icon={GraduationCap} />
+              <ImpactCounter end={519364} label="en becas completas" prefix="US$ " suffix="" formatNumber={true} icon={GraduationCap} isStatic={true} />
               <ImpactCounter end={1000} label="Miembros en nuestra comunidad" icon={Users} />
             </div>
             <div className="flex gap-4 pt-4">
