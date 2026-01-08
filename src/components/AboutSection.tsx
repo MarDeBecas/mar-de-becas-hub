@@ -1,4 +1,4 @@
-import { Target, Eye, Heart, GraduationCap } from "lucide-react";
+import { Target, Eye, Heart, GraduationCap, Users, UserCheck } from "lucide-react";
 import mariluGraduation from "@/assets/marilu-graduation.jpg";
 import { useCountUp } from "@/hooks/useCountUp";
 
@@ -65,9 +65,9 @@ export function AboutSection() {
             
             <h4 className="text-xl font-bold text-foreground pt-4">Nuestro impacto</h4>
             <div className="grid grid-cols-3 gap-4">
-              <ImpactCounter end={80} label="Asesorados" />
+              <ImpactCounter end={80} label="Asesorados" icon={UserCheck} />
               <ImpactCounter end={519364} label="en becas completas" prefix="US$ " suffix="" formatNumber={true} icon={GraduationCap} />
-              <ImpactCounter end={1000} label="Miembros en nuestra comunidad" />
+              <ImpactCounter end={1000} label="Miembros en nuestra comunidad" icon={Users} />
             </div>
             <div className="flex gap-4 pt-4">
               <a href="https://www.linkedin.com/in/marilu-nu%C3%B1ez-sanchez/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
