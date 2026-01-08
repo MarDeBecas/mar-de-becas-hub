@@ -2,8 +2,10 @@ import { Target, Eye, Heart } from "lucide-react";
 import mariluGraduation from "@/assets/marilu-graduation.jpg";
 import { useCountUp } from "@/hooks/useCountUp";
 
-function ImpactCounter({ end, label, suffix = "+" }: { end: number; label: string; suffix?: string }) {
+function ImpactCounter({ end, label, suffix = "+", prefix = "", formatNumber = false }: { end: number; label: string; suffix?: string; prefix?: string; formatNumber?: boolean }) {
   const { count, ref } = useCountUp({ end, duration: 2000 });
+  
+  const displayValue = formatNumber ? count.toLocaleString('en-US') : count;
   
   return (
     <div 
@@ -11,7 +13,7 @@ function ImpactCounter({ end, label, suffix = "+" }: { end: number; label: strin
       className="text-center p-4 bg-primary/5 rounded-xl animate-fade-in"
     >
       <p className="text-2xl font-bold text-primary">
-        {count}{suffix}
+        {prefix}{displayValue}{suffix}
       </p>
       <p className="text-sm text-muted-foreground">{label}</p>
     </div>
@@ -59,7 +61,7 @@ export function AboutSection() {
             <h4 className="text-xl font-bold text-foreground pt-4">Nuestro impacto</h4>
             <div className="grid grid-cols-3 gap-4">
               <ImpactCounter end={80} label="Asesorados" />
-              <ImpactCounter end={10} label="Aliados" />
+              <ImpactCounter end={519364} label="en becas completas" prefix="US$ " suffix="" formatNumber={true} />
               <ImpactCounter end={1000} label="Miembros en nuestra comunidad" />
             </div>
             <div className="flex gap-4 pt-4">
