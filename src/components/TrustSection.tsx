@@ -9,6 +9,7 @@ import logoEnc from "@/assets/logo-enc.jpg";
 import logoCreateLatam from "@/assets/logo-create-latam.jpg";
 import logoYo from "@/assets/logo-yo.png";
 import logoRedInternacional from "@/assets/logo-red-internacional.jpg";
+import logoAprendly from "@/assets/logo-aprendly.png";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
@@ -29,6 +30,7 @@ const partnerLogos = [
   { src: logoCreateLatam, alt: "Create Latam" },
   { src: logoYo, alt: "Yo" },
   { src: logoRedInternacional, alt: "Red Internacional" },
+  { src: logoAprendly, alt: "Aprendly" },
 ];
 
 export function TrustSection() {
