@@ -36,8 +36,8 @@ export function AboutSection() {
             Conoce a <span className="text-gradient">Mar de Becas</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Somos un equipo apasionado por abrir puertas a la educación internacional, 
-            guiando a talentosos profesionales hacia las mejores oportunidades de becas en el mundo.
+            Plataforma que ayuda a jóvenes peruanos y latinoamericanos a ganar becas internacionales 
+            y así puedan iniciar sus estudios superiores en las mejores universidades del mundo.
           </p>
         </div>
 
