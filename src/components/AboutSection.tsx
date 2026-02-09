@@ -36,7 +36,7 @@ export function AboutSection() {
             Conoce a <span className="text-gradient">Mar de Becas</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Plataforma que ayuda a jóvenes peruanos y latinoamericanos a ganar becas internacionales 
+            Somos la plataforma que ayuda a jóvenes peruanos y latinoamericanos a ganar becas internacionales 
             y así puedan iniciar sus estudios superiores en las mejores universidades del mundo.
           </p>
         </div>
