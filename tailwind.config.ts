@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         serif: ["Cormorant Garamond", "Georgia", "serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Montserrat", "Inter", "system-ui", "sans-serif"],
       },
       colors: {
         // ✅ Colores Mar de Becas
@@ -58,6 +59,12 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        brand: {
+          blue: "#2059BA",
+          purple: "#A07DE2",
+          pink: "#F9E1DE",
+          gold: "#FFC45F",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
