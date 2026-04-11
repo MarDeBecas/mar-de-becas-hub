@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,33 +15,33 @@
     --popover: 0 0% 100%;
     --popover-foreground: 270 50% 10%;
 
-    --primary: 270 60% 35%;
+    --primary: 218 71% 43%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 270 50% 20%;
+    --secondary: 261 25% 96%;
+    --secondary-foreground: 218 40% 22%;
 
-    --muted: 270 20% 95%;
-    --muted-foreground: 270 15% 45%;
+    --muted: 261 20% 95%;
+    --muted-foreground: 218 20% 42%;
 
-    --accent: 210 60% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 8 69% 92%;
+    --accent-foreground: 218 71% 28%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 270 20% 90%;
-    --input: 270 20% 90%;
-    --ring: 270 60% 35%;
+    --border: 261 18% 90%;
+    --input: 261 18% 90%;
+    --ring: 218 71% 43%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(270 60% 25% / 0.95), hsl(270 40% 15% / 0.9));
-    --card-shadow: 0 4px 30px hsl(270 60% 35% / 0.1);
-    --card-shadow-hover: 0 8px 40px hsl(270 60% 35% / 0.2);
-    --glow-primary: 0 0 60px hsl(270 60% 35% / 0.3);
-    --text-gradient: linear-gradient(135deg, hsl(270 60% 45%), hsl(210 60% 55%));
+    --hero-gradient: linear-gradient(135deg, hsl(218 71% 32% / 0.96), hsl(261 63% 48% / 0.92));
+    --card-shadow: 0 4px 30px hsl(218 71% 43% / 0.12);
+    --card-shadow-hover: 0 8px 40px hsl(218 71% 43% / 0.2);
+    --glow-primary: 0 0 60px hsl(218 71% 43% / 0.28);
+    --text-gradient: linear-gradient(135deg, hsl(218 71% 48%), hsl(261 63% 65%));
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -54,33 +54,33 @@
   }
 
   .dark {
-    --background: 270 30% 8%;
-    --foreground: 270 10% 95%;
+    --background: 218 35% 8%;
+    --foreground: 261 15% 95%;
 
-    --card: 270 30% 12%;
-    --card-foreground: 270 10% 95%;
+    --card: 218 30% 12%;
+    --card-foreground: 261 15% 95%;
 
-    --popover: 270 30% 12%;
-    --popover-foreground: 270 10% 95%;
+    --popover: 218 30% 12%;
+    --popover-foreground: 261 15% 95%;
 
-    --primary: 270 50% 60%;
-    --primary-foreground: 270 30% 8%;
+    --primary: 218 65% 55%;
+    --primary-foreground: 218 35% 8%;
 
-    --secondary: 270 20% 20%;
-    --secondary-foreground: 270 10% 95%;
+    --secondary: 261 25% 18%;
+    --secondary-foreground: 261 15% 92%;
 
-    --muted: 270 20% 18%;
-    --muted-foreground: 270 10% 65%;
+    --muted: 218 20% 16%;
+    --muted-foreground: 261 12% 65%;
 
-    --accent: 210 50% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 8 45% 22%;
+    --accent-foreground: 8 69% 92%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 270 20% 20%;
-    --input: 270 20% 20%;
-    --ring: 270 50% 60%;
+    --border: 218 20% 18%;
+    --input: 218 20% 18%;
+    --ring: 218 65% 55%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -206,4 +206,49 @@
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
+
+  /* Hero: cinematic glow / depth (premium SaaS) */
+  @keyframes hero-orb-drift {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1) translate(0, 0);
+    }
+    50% {
+      opacity: 0.92;
+      transform: scale(1.06) translate(1%, -2%);
+    }
+  }
+
+  @keyframes hero-sparkle-twinkle {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 0.85; }
+  }
+
+  .animate-hero-orb {
+    animation: hero-orb-drift 14s ease-in-out infinite;
+  }
+
+  .animate-hero-orb-slow {
+    animation: hero-orb-drift 18s ease-in-out infinite;
+    animation-delay: -6s;
+  }
+
+  .animate-hero-sparkle {
+    animation: hero-sparkle-twinkle 3.5s ease-in-out infinite;
+  }
+
+  .animate-hero-sparkle-delayed {
+    animation: hero-sparkle-twinkle 4.2s ease-in-out infinite;
+    animation-delay: -1.5s;
+  }
+
+  .hero-vibrant-mesh {
+    background-image:
+      radial-gradient(ellipse 90% 70% at 15% 35%, rgba(160, 125, 226, 0.55) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 50% at 88% 12%, rgba(255, 196, 95, 0.35) 0%, transparent 45%),
+      radial-gradient(ellipse 60% 55% at 70% 85%, rgba(32, 89, 186, 0.5) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 45% 60%, rgba(249, 225, 222, 0.18) 0%, transparent 50%);
+    background-size: 120% 120%, 100% 100%, 110% 110%, 130% 130%;
+    background-position: 0% 40%, 100% 20%, 80% 100%, 50% 50%;
+  }
 }

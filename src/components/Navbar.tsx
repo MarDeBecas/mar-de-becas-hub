@@ -40,7 +40,13 @@ export function Navbar() {
               alt="Mar de Becas"
               className="h-14 w-auto object-contain"
             />
-            <span className="text-foreground font-bold text-xl">Mar de Becas</span>
+            <span
+              className={`font-bold text-xl transition-colors ${
+                isScrolled ? "text-foreground" : "text-white drop-shadow-sm"
+              }`}
+            >
+              Mar de Becas
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -51,7 +57,11 @@ export function Navbar() {
                 href={link.href}
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
-                className="text-sm font-medium transition-colors duration-200 hover:text-primary text-foreground"
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  isScrolled
+                    ? "text-foreground hover:text-primary"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
                 {link.label}
               </a>
@@ -70,9 +80,9 @@ export function Navbar() {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-foreground" />
+              <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
             ) : (
-              <Menu className="h-6 w-6 text-foreground" />
+              <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
             )}
           </button>
         </div>
