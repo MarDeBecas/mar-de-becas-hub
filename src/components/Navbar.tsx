@@ -7,7 +7,7 @@ const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#nosotros", label: "Nosotros" },
   { href: "#servicios", label: "Servicios" },
-  { href: "https://beca-mentor-pro.lovable.app", label: "Becas", external: true },
+  { href: "https://becariodelmudno.netlify.app/", label: "Curso", external: true },
   { href: "#testimonios", label: "Testimonios" },
   { href: "#noticias", label: "Noticias" },
 ];

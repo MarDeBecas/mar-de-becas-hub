@@ -18,6 +18,14 @@ export default {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
+        // ✅ Colores Mar de Becas
+        brand: {
+          blue:   "#2059BA",
+          purple: "#A07DE2",
+          pink:   "#F9E1DE",
+          gold:   "#FFC45F",
+        },
+        // ✅ Base
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
