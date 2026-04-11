@@ -368,8 +368,8 @@ export function HeroSection() {
           <div className="relative z-10 flex h-full min-h-0 w-full min-w-0 flex-1 flex-col items-center overflow-hidden font-display">
             <div
               className="
-                flex h-full min-h-0 w-full max-w-[38rem] flex-col justify-center gap-y-[clamp(0.45rem,1.85dvh,1.35rem)]
-                overflow-hidden text-left xl:max-w-[42rem] 2xl:max-w-[44rem]
+                flex h-full min-h-0 w-full max-w-[36rem] flex-col justify-center gap-y-[clamp(0.4rem,1.65dvh,1.15rem)]
+                overflow-hidden text-left xl:max-w-[40rem] 2xl:max-w-[42rem]
                 [@media(max-height:700px)]:gap-y-[clamp(0.3rem,1.2dvh,0.85rem)]
               "
             >
@@ -385,50 +385,63 @@ export function HeroSection() {
               <span className="text-white">+500 Becas Ganadas</span>
             </div>
 
-            <h1
-              className="w-full max-w-none text-balance text-[clamp(1.2rem,calc(0.95rem+1.8vw+0.65dvh),2.65rem)] font-bold uppercase leading-[1.06] tracking-[0.024em] text-white xl:leading-[1.06]"
-              style={{
-                textShadow: "0 2px 18px rgba(255,255,255,0.08), 0 2px 28px rgba(0,0,0,0.35)",
-              }}
-            >
-              Tu camino hacia un posgrado en el extranjero empieza aquí.
-            </h1>
+            <div className="w-full max-w-[30rem] sm:max-w-[34rem] lg:max-w-[38rem]">
+              <h1
+                className="
+                  font-serif text-[clamp(1.9rem,calc(1.35rem+3vw+0.65dvh),3.55rem)] font-semibold uppercase leading-[1.07] tracking-[0.055em] text-[#F8F4EE]
+                  antialiased
+                "
+              >
+                <span className="block">Tu camino hacia</span>
+                <span className="block">Un posgrado en el</span>
+                <span className="block">Extranjero empieza aquí.</span>
+              </h1>
+            </div>
 
-            <p className="w-full max-w-none text-[clamp(0.8rem,1.35dvh+0.4rem,1.06rem)] font-normal leading-snug text-white/95 sm:leading-relaxed">
+            <p
+              className="
+                max-w-[28rem] font-sans text-[clamp(0.8125rem,1.25dvh+0.45rem,1.0625rem)] font-normal leading-relaxed text-[#F8F4EE]/[0.82]
+                antialiased
+              "
+              style={{ marginTop: "clamp(1.75rem, 4.5dvh, 2.85rem)" }}
+            >
               Asesoría experta y personalizada para ganar becas internacionales de excelencia.
             </p>
 
-            <div className="relative flex w-full max-w-none shrink-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <div
+              className="relative flex w-full max-w-none shrink-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+              style={{ marginTop: "clamp(1.35rem, 3.5dvh, 2.25rem)" }}
+            >
               <div
-                className="pointer-events-none absolute left-[-5%] top-1/2 h-[140px] w-[min(105%,340px)] -translate-y-1/2 rounded-full bg-[#FFC45F]/30 blur-[56px] sm:left-0"
+                className="pointer-events-none absolute left-[-5%] top-1/2 h-[100px] w-[min(100%,280px)] -translate-y-1/2 rounded-full bg-[#FFC45F]/18 blur-[48px] sm:left-0"
                 aria-hidden
               />
               <span className="relative inline-flex">
-                <span className="absolute -inset-4 rounded-2xl bg-[#FFC45F]/50 blur-3xl" aria-hidden />
+                <span className="absolute -inset-3 rounded-2xl bg-[#FFC45F]/25 blur-2xl" aria-hidden />
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
-                    relative inline-flex h-[clamp(2.65rem,7.5dvh,3.35rem)] items-center justify-center gap-2 rounded-2xl
-                    border border-white/25 bg-[#FFC45F] bg-gradient-to-b from-[#ffecc8] via-[#FFC45F] to-[#e8a82e]
-                    px-[clamp(1.25rem,3.5vw,2.25rem)] text-[clamp(0.62rem,1.35dvh,0.7rem)] font-bold uppercase tracking-[0.14em] text-[#082448]
-                    shadow-[0_0_0_1px_rgba(255,255,255,0.55)_inset,0_3px_8px_rgba(0,0,0,0.1)_inset,0_14px_48px_rgba(255,196,95,0.55),0_0_72px_-4px_rgba(255,196,95,0.85)]
-                    transition hover:brightness-[1.06] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.65)_inset,0_18px_56px_rgba(255,196,95,0.65),0_0_88px_2px_rgba(255,196,95,0.5)]
+                    relative inline-flex h-[clamp(2.65rem,7.5dvh,3.35rem)] items-center justify-center gap-2 rounded-xl
+                    border border-[#FFC45F]/35 bg-[#FFC45F] px-[clamp(1.25rem,3.5vw,2.25rem)]
+                    text-[clamp(0.62rem,1.35dvh,0.72rem)] font-bold uppercase tracking-[0.12em] text-[#0c1f36]
+                    shadow-[0_1px_0_rgba(255,255,255,0.45)_inset]
+                    transition hover:bg-[#f5bd55] hover:brightness-[1.02]
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F9E1DE] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2059BA]
                   "
                 >
-                  <MessageCircle className="h-[1.2rem] w-[1.2rem] shrink-0 opacity-88" strokeWidth={2} aria-hidden />
+                  <MessageCircle className="h-[1.15rem] w-[1.15rem] shrink-0" strokeWidth={2} aria-hidden />
                   Agenda una asesoría
                 </a>
               </span>
               <a
                 href="#testimonios"
                 className="
-                  inline-flex h-[clamp(2.65rem,7.5dvh,3.35rem)] items-center justify-center rounded-2xl border border-white/[0.28] bg-white/[0.08]
-                  px-[clamp(1.25rem,3.5vw,2.25rem)] text-[clamp(0.62rem,1.35dvh,0.7rem)] font-bold uppercase tracking-[0.14em] text-white shadow-[0_0_20px_rgba(255,255,255,0.05),0_1px_0_rgba(255,255,255,0.14)_inset]
-                  backdrop-blur-[10px] transition hover:border-white/40 hover:bg-white/[0.12] hover:shadow-[0_0_28px_rgba(255,255,255,0.1),0_1px_0_rgba(255,255,255,0.2)_inset]
-                  sm:text-[clamp(0.68rem,1.4dvh,0.78rem)]
+                  inline-flex h-[clamp(2.65rem,7.5dvh,3.35rem)] items-center justify-center rounded-xl border border-white/25
+                  bg-white/[0.1] px-[clamp(1.25rem,3.5vw,2.25rem)] text-[clamp(0.62rem,1.35dvh,0.72rem)] font-bold uppercase tracking-[0.12em] text-[#F8F4EE]
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]
+                  backdrop-blur-md transition hover:border-white/35 hover:bg-white/[0.14]
                 "
               >
                 Casos de éxito
@@ -448,16 +461,22 @@ export function HeroSection() {
                   <span className="h-px min-w-8 flex-1 bg-gradient-to-l from-transparent to-white/25 sm:min-w-12" aria-hidden />
               </div>
 
-                <div className="grid min-h-0 w-full grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-3 lg:gap-4">
+                <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-3 lg:gap-4">
                 {partnerLogos.map(({ id, src, alt }) => (
                   <div
                     key={id}
-                    className="flex min-h-0 w-full min-w-0 flex-1 items-center justify-center rounded-xl border border-white/50 bg-white/[0.96] px-3 py-[clamp(0.45rem,1.8dvh,1.1rem)] shadow-[0_10px_40px_rgba(0,0,0,0.2)] sm:px-4"
+                    className="
+                      flex h-[4.75rem] w-full min-w-0 items-center justify-center overflow-hidden rounded-xl
+                      border border-white/50 bg-white/[0.96] px-3 shadow-[0_10px_40px_rgba(0,0,0,0.2)]
+                      sm:h-[5.5rem] sm:px-4 lg:h-[6rem]
+                    "
                   >
                     <img
                       src={src}
                       alt={alt}
-                      className="block max-h-[min(4.5rem,14dvh)] w-full max-w-full object-contain sm:max-h-[min(4.75rem,15dvh)]"
+                      className="mx-auto block max-h-[3.35rem] max-w-[min(100%,9.75rem)] w-auto object-contain object-center sm:max-h-[4rem] sm:max-w-[min(100%,11.5rem)] lg:max-h-[4.5rem] lg:max-w-[min(100%,13.5rem)]"
+                      sizes="(max-width:640px) 160px, 200px"
+                      decoding="async"
                     />
                   </div>
                 ))}
