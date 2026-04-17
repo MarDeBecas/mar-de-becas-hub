@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -14,19 +15,18 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Cormorant Garamond", "Georgia", "serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Montserrat", "Inter", "system-ui", "sans-serif"],
+        sans:    ["Poppins", "sans-serif"],
+        display: ["Poppins", "sans-serif"],
+        serif:   ["Cormorant Garamond", "Georgia", "serif"],
       },
       colors: {
-        // ✅ Colores Mar de Becas
+        // ✅ Colores Mar de Becas — solo una vez
         brand: {
           blue:   "#2059BA",
           purple: "#A07DE2",
           pink:   "#F9E1DE",
           gold:   "#FFC45F",
         },
-        // ✅ Base
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -59,12 +59,6 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
-        },
-        brand: {
-          blue: "#2059BA",
-          purple: "#A07DE2",
-          pink: "#F9E1DE",
-          gold: "#FFC45F",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -108,5 +102,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

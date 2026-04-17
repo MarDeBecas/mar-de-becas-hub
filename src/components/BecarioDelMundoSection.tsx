@@ -1,13 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
-  CheckCircle2,
-  XCircle,
-  Lightbulb,
-  ClipboardList,
-  Target,
-  Rocket,
-  ArrowRight,
+  Target, ClipboardList, Lightbulb, ArrowRight,
 } from "lucide-react";
 import becarioGroupImage from "@/assets/becario-del-mundo-group.png";
 
@@ -19,15 +13,15 @@ const FOR_YOU = [
 ];
 
 const SOLUTION = [
-  { icon: Target, title: "Mentoría personalizada", desc: "Acompañamiento 1:1 con expertos que ya ganaron becas internacionales." },
-  { icon: ClipboardList, title: "Sesiones prácticas", desc: "6 sesiones en vivo con ejercicios reales que construyen tu aplicación." },
-  { icon: Lightbulb, title: "Feedback directo", desc: "Revisión detallada de tus documentos para que cada palabra cuente." },
+  { icon: Target,        title: "Mentoría personalizada", desc: "Acompañamiento 1:1 con expertos que ya ganaron becas internacionales." },
+  { icon: ClipboardList, title: "Sesiones prácticas",     desc: "6 sesiones en vivo con ejercicios reales que construyen tu aplicación." },
+  { icon: Lightbulb,     title: "Feedback directo",       desc: "Revisión detallada de tus documentos para que cada palabra cuente." },
 ];
 
 const STEPS = [
   { number: "01", title: "Diagnóstico", desc: "Analizamos tu perfil y definimos las becas más adecuadas para ti." },
-  { number: "02", title: "Estrategia", desc: "Construimos tu plan de postulación paso a paso con fechas y prioridades." },
-  { number: "03", title: "Aplicación", desc: "Preparamos cada documento contigo y te acompañamos hasta el final." },
+  { number: "02", title: "Estrategia",  desc: "Construimos tu plan de postulación paso a paso con fechas y prioridades." },
+  { number: "03", title: "Aplicación",  desc: "Preparamos cada documento contigo y te acompañamos hasta el final." },
 ];
 
 const TESTIMONIALS = [
@@ -36,14 +30,14 @@ const TESTIMONIALS = [
     result: "Becaria del Mundo 2025 🌍",
     text: "Me ayudó a entender más sobre la postulación y tener claridad sobre mi proyecto personal.",
     initials: "MR",
-    color: "#2059BA",
+    color: "#FFC45F",
   },
   {
     name: "Brenda R.",
     result: "Becaria del Mundo 2025 🇬🇧",
     text: "A través del autoconocimiento entendí mejor quién soy y por qué quiero seguir estudiando.",
     initials: "BR",
-    color: "#A07DE2",
+    color: "#F9E1DE",
   },
   {
     name: "Alondra R.",
@@ -62,22 +56,44 @@ export function BecarioDelMundoSection() {
     <div ref={ref} id="curso" className="scroll-mt-20">
 
       {/* ══════════════════════════════════════
-          1. HERO
+          HERO
       ══════════════════════════════════════ */}
       <section
         className="relative overflow-hidden py-24 md:py-32"
         style={{
-          background: "linear-gradient(135deg, #0f1f5c 0%, #2d1b69 50%, #1a0b3d 100%)",
+          background: "linear-gradient(135deg, #2059BA 0%, #2a4fb0 45%, #A07DE2 100%)",
         }}
       >
-        {/* Orbes */}
+        {/* Dots — igual al Hero de Gloria */}
         <div
-          className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full blur-[120px]"
+          className="pointer-events-none absolute inset-0 opacity-[0.18]"
+          style={{
+            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1.5px)",
+            backgroundSize: "36px 36px",
+            maskImage: "linear-gradient(to bottom, black 0%, black calc(100% - 3rem), transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black calc(100% - 3rem), transparent 100%)",
+          }}
+        />
+
+        {/* Glows — igual al Hero */}
+        <div
+          className="pointer-events-none absolute right-[-80px] top-[-40px] h-[320px] w-[320px] rounded-full blur-3xl"
+          style={{ background: "rgba(249,225,222,0.3)" }}
+        />
+        <div
+          className="pointer-events-none absolute left-[-60px] bottom-[-40px] h-[280px] w-[280px] rounded-full blur-3xl"
           style={{ background: "rgba(160,125,226,0.25)" }}
         />
         <div
-          className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full blur-[120px]"
-          style={{ background: "rgba(32,89,186,0.2)" }}
+          className="pointer-events-none absolute left-1/4 top-1/4 h-[380px] w-[480px] -translate-x-1/2 rounded-full blur-[120px]"
+          style={{ background: "rgba(160,125,226,0.3)" }}
+        />
+        {/* Glow dorado arriba derecha — igual al Hero */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse 50% 40% at 90% 6%, rgba(255,196,95,0.18) 0%, transparent 55%)",
+          }}
         />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6">
@@ -90,13 +106,13 @@ export function BecarioDelMundoSection() {
               transition={{ duration: 0.7 }}
               className="flex-1 text-center lg:text-left"
             >
-              {/* Badge premium */}
+              {/* Badge */}
               <span
                 className="inline-block mb-5 rounded-full px-4 py-1.5 text-[11px] font-black uppercase tracking-wider backdrop-blur-sm"
                 style={{
-                  background: "rgba(255,255,255,0.1)",
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  color: "rgba(255,255,255,0.9)",
+                  background: "rgba(255,196,95,0.15)",
+                  border: "1px solid rgba(255,196,95,0.3)",
+                  color: "#FFC45F",
                 }}
               >
                 Programa Intensivo
@@ -105,7 +121,7 @@ export function BecarioDelMundoSection() {
               {/* Headline */}
               <h2
                 className="font-sans text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] mb-5"
-                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}
+                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
               >
                 Consigue una beca
                 <br />
@@ -128,12 +144,12 @@ export function BecarioDelMundoSection() {
                   href="https://becariodelmudno.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.04, boxShadow: "0 20px 40px rgba(255,196,95,0.45)" }}
+                  whileHover={{ scale: 1.04, boxShadow: "0 20px 40px rgba(255,196,95,0.4)" }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-3 font-black text-base px-8 py-4 rounded-2xl shadow-xl transition-all duration-300"
-                  style={{ background: "linear-gradient(135deg, #FFC45F, #f5a623)", color: "#1a0b3d" }}
+                  className="inline-flex items-center gap-3 font-black text-base px-8 py-4 rounded-2xl shadow-xl"
+                  style={{ background: "linear-gradient(135deg,#FFC45F,#f5a623)", color: "#0c1f36" }}
                 >
-                  <span>Ver programa completo</span>
+                  Ver programa completo
                   <ArrowRight className="w-5 h-5" />
                 </motion.a>
                 <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -145,22 +161,23 @@ export function BecarioDelMundoSection() {
               <div
                 className="inline-flex items-center gap-2 rounded-full px-4 py-2"
                 style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.12)",
+                  background: "rgba(255,255,255,0.1)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  backdropFilter: "blur(8px)",
                 }}
               >
                 <div className="flex -space-x-2">
-                  {["#2059BA", "#A07DE2", "#FFC45F"].map((c, i) => (
+                  {["#FFC45F", "#F9E1DE", "#ffffff"].map((c, i) => (
                     <div
                       key={i}
-                      className="w-7 h-7 rounded-full border-2 flex items-center justify-center text-[9px] font-black text-white"
-                      style={{ background: c, borderColor: "rgba(255,255,255,0.2)" }}
+                      className="w-7 h-7 rounded-full border-2 flex items-center justify-center text-[9px] font-black"
+                      style={{ background: c, borderColor: "rgba(255,255,255,0.3)", color: "#0c1f36" }}
                     >
                       {["M", "B", "A"][i]}
                     </div>
                   ))}
                 </div>
-                <span className="text-xs font-semibold" style={{ color: "rgba(255,255,255,0.8)" }}>
+                <span className="text-xs font-semibold" style={{ color: "rgba(255,255,255,0.85)" }}>
                   +30 estudiantes ya aceptados en el extranjero
                 </span>
               </div>
@@ -176,32 +193,30 @@ export function BecarioDelMundoSection() {
               <div
                 className="rounded-2xl p-4 md:p-6 shadow-2xl"
                 style={{
-                  background: "rgba(255,255,255,0.07)",
-                  border: "1px solid rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.08)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.18)",
                 }}
               >
                 {/* Barra navegador */}
                 <div
                   className="rounded-xl px-4 py-2.5 mb-4 flex items-center gap-2"
-                  style={{ background: "rgba(0,0,0,0.35)" }}
+                  style={{ background: "rgba(0,0,0,0.25)" }}
                 >
                   <div className="flex gap-1.5">
-                    {["#ff5f57", "#febc2e", "#28c840"].map((c, i) => (
+                    {["#ff5f57","#febc2e","#28c840"].map((c, i) => (
                       <div key={i} className="w-3 h-3 rounded-full" style={{ background: c }} />
                     ))}
                   </div>
                   <div
                     className="flex-1 mx-3 rounded-md px-3 py-1 text-[11px]"
-                    style={{
-                      background: "rgba(255,255,255,0.08)",
-                      color: "rgba(255,255,255,0.4)",
-                    }}
+                    style={{ background: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.4)" }}
                   >
                     becariodelmundo.com
                   </div>
                 </div>
 
-                {/* Pantalla con overlay */}
+                {/* Pantalla */}
                 <div className="rounded-xl overflow-hidden relative">
                   <img
                     src={becarioGroupImage}
@@ -209,12 +224,10 @@ export function BecarioDelMundoSection() {
                     className="w-full h-64 md:h-72 object-cover object-top"
                     style={{ filter: "brightness(0.55) saturate(0.8)" }}
                   />
-
-                  {/* Overlay degradado */}
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: "linear-gradient(to top, rgba(26,11,61,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)",
+                      background: "linear-gradient(to top, rgba(32,89,186,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)",
                     }}
                   />
 
@@ -222,9 +235,9 @@ export function BecarioDelMundoSection() {
                   <div
                     className="absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5"
                     style={{
-                      background: "rgba(0,0,0,0.55)",
+                      background: "rgba(0,0,0,0.45)",
                       backdropFilter: "blur(8px)",
-                      border: "1px solid rgba(255,255,255,0.12)",
+                      border: "1px solid rgba(255,255,255,0.15)",
                     }}
                   >
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -233,10 +246,7 @@ export function BecarioDelMundoSection() {
 
                   {/* Texto inferior */}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p
-                      className="text-[11px] font-bold uppercase tracking-widest mb-1.5"
-                      style={{ color: "#FFC45F" }}
-                    >
+                    <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: "#FFC45F" }}>
                       Sesiones en vivo con mentoría real
                     </p>
                     <p className="text-white font-black text-xl leading-tight">
@@ -258,7 +268,7 @@ export function BecarioDelMundoSection() {
                     <div
                       key={i}
                       className="rounded-xl py-3 text-center"
-                      style={{ background: "rgba(255,255,255,0.06)" }}
+                      style={{ background: "rgba(255,255,255,0.08)" }}
                     >
                       <p className="text-lg font-black" style={{ color: "#FFC45F" }}>{s.v}</p>
                       <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.5)" }}>{s.l}</p>
