@@ -1,6 +1,6 @@
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import emmyImage from "@/assets/testimonial-emmy.jpg";
 import nayvImage from "@/assets/testimonial-nayvi.jpg";
 import royImage from "@/assets/testimonial-roy.jpg";
@@ -53,28 +53,23 @@ function TestimonialCard({
   t,
   i,
   isInView,
-  expanded,
-  setExpanded,
 }: {
   t: typeof testimonials[0];
   i: number;
   isInView: boolean;
-  expanded: number | null;
-  setExpanded: (id: number | null) => void;
 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-      className="bg-white rounded-2xl p-6 flex-shrink-0 transition-all duration-300 hover:-translate-y-1"
+      className="bg-white rounded-2xl p-8 flex-shrink-0 transition-all duration-300 hover:-translate-y-1"
       style={{
-        width: "min(85vw, 360px)",
+        width: "min(88vw, 420px)",
+        minHeight: "380px",
         scrollSnapAlign: "start",
-        boxShadow: expanded === t.id
-          ? "0 20px 48px rgba(0,0,0,0.12)"
-          : "0 4px 20px rgba(0,0,0,0.08)",
-        border: `1.5px solid ${expanded === t.id ? t.color + "50" : t.color + "20"}`,
+        boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+        border: `1.5px solid ${t.color}20`,
       }}
     >
       {/* Resultado */}
@@ -110,40 +105,10 @@ function TestimonialCard({
         </div>
       </div>
 
-      {/* Quote */}
+      {/* Quote completo */}
       <p className="font-sans text-gray-600 text-base leading-relaxed italic">
-        "{t.quote}"
+        "{t.full}"
       </p>
-
-      {/* Expand */}
-      <AnimatePresence>
-        {expanded === t.id && (
-          <motion.p
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="font-sans text-gray-500 text-sm leading-relaxed mt-3 overflow-hidden"
-          >
-            {t.full}
-          </motion.p>
-        )}
-      </AnimatePresence>
-
-      {/* Botón leer más */}
-      <button
-        onClick={() => setExpanded(expanded === t.id ? null : t.id)}
-        className="flex items-center gap-1 mt-4 text-sm font-bold transition-all duration-200"
-        style={{ color: t.color }}
-      >
-        {expanded === t.id ? "Leer menos" : "Leer más"}
-        <motion.div
-          animate={{ rotate: expanded === t.id ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <ChevronDown className="w-4 h-4" />
-        </motion.div>
-      </button>
 
       {/* Barra color */}
       <div
@@ -157,13 +122,13 @@ function TestimonialCard({
 export function TestimonialsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
     <section
       ref={ref}
       id="testimonios"
-      className="py-20 md:py-24 scroll-mt-20 bg-white"
+      className="py-20 md:py-24 scroll-mt-20"
+      style={{ background: "#f8f7ff" }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
@@ -192,9 +157,6 @@ export function TestimonialsSection() {
           <p className="font-sans text-gray-500 text-base md:text-lg max-w-xl mx-auto">
             Aceptados en universidades y becas internacionales.
           </p>
-          <p className="font-sans text-sm text-gray-400 mt-2 font-medium">
-            +30 estudiantes aceptados en el extranjero
-          </p>
         </motion.div>
 
         {/* Scroll horizontal — mobile y desktop */}
@@ -202,7 +164,7 @@ export function TestimonialsSection() {
           {/* Fade derecho */}
           <div
             className="pointer-events-none absolute right-0 top-0 bottom-4 w-12 sm:w-16 z-10"
-            style={{ background: "linear-gradient(to left, white, transparent)" }}
+            style={{ background: "linear-gradient(to left, #f8f7ff, transparent)" }}
           />
 
           <div
@@ -216,8 +178,6 @@ export function TestimonialsSection() {
                   t={t}
                   i={i}
                   isInView={isInView}
-                  expanded={expanded}
-                  setExpanded={setExpanded}
                 />
               ))}
             </div>
