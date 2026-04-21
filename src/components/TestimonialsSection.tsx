@@ -192,16 +192,18 @@ export function TestimonialsSection() {
           className="text-center mt-8 md:mt-10"
         >
           
-          <a
+          <motion.a
             href="https://becariodelmudno.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-display font-bold text-sm transition-all duration-300 hover:gap-3"
-            style={{ color: "#2059BA" }}
+            whileHover={{ scale: 1.04, boxShadow: "0 20px 50px rgba(32,89,186,0.35)" }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-3 font-display font-black text-base text-white px-8 py-4 shadow-xl"
+            style={{ background: "linear-gradient(135deg,#2059BA,#A07DE2)", borderRadius: "18px" }}
           >
             Ver programa completo
-            <ArrowRight className="w-4 h-4" />
-          </a>
+            <ArrowRight className="w-5 h-5" />
+          </motion.a>
         </motion.div>
 
       </div>

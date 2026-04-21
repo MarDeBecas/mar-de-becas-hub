@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useCountUp } from "@/hooks/useCountUp";
 import {
   Target, ClipboardList, Lightbulb, ArrowRight,
 } from "lucide-react";
@@ -47,6 +48,24 @@ const TESTIMONIALS = [
     color: "#FFC45F",
   },
 ];
+
+function StatCounter({ end, suffix = "", label, last = false }: { end: number; suffix?: string; label: string; last?: boolean }) {
+  const { count, ref } = useCountUp({ end, duration: 1800 });
+  return (
+    <div
+      ref={ref}
+      className="flex-1 flex flex-col items-center justify-center py-3 gap-1 text-center"
+      style={{ borderRight: last ? "none" : "1px solid rgba(255,255,255,0.1)" }}
+    >
+      <p className="font-display text-3xl font-black leading-none tabular-nums" style={{ color: "#FFC45F", textShadow: "0 0 20px rgba(255,196,95,0.5)" }}>
+        {count}{suffix}
+      </p>
+      <p className="font-sans text-[12px] font-semibold uppercase tracking-wider mt-1" style={{ color: "rgba(255,255,255,0.75)" }}>
+        {label}
+      </p>
+    </div>
+  );
+}
 
 export function BecarioDelMundoSection() {
   const ref = useRef(null);
@@ -222,12 +241,12 @@ export function BecarioDelMundoSection() {
                     src={becarioGroupImage}
                     alt="Sesión en vivo"
                     className="w-full h-64 md:h-72 object-cover object-top"
-                    style={{ filter: "brightness(0.55) saturate(0.8)" }}
+                    style={{ filter: "brightness(0.82) saturate(0.95)" }}
                   />
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: "linear-gradient(to top, rgba(32,89,186,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)",
+                      background: "linear-gradient(to top, rgba(10,20,60,0.7) 0%, rgba(0,0,0,0.0) 45%, transparent 100%)",
                     }}
                   />
 
@@ -258,22 +277,14 @@ export function BecarioDelMundoSection() {
                   </div>
                 </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-2 mt-4">
-                  {[
-                    { v: "6", l: "Sesiones" },
-                    { v: "36+", l: "Alumnos" },
-                    { v: "4", l: "Países" },
-                  ].map((s, i) => (
-                    <div
-                      key={i}
-                      className="rounded-xl py-3 text-center"
-                      style={{ background: "rgba(255,255,255,0.08)" }}
-                    >
-                      <p className="text-lg font-black" style={{ color: "#FFC45F" }}>{s.v}</p>
-                      <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.5)" }}>{s.l}</p>
-                    </div>
-                  ))}
+                {/* Stats con contador animado */}
+                <div
+                  className="flex mt-4 rounded-xl"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+                >
+                  <StatCounter end={200} suffix="+" label="Lista de espera" />
+                  <StatCounter end={36} suffix="+" label="Alumnos"  />
+                  <StatCounter end={4}  suffix=""  label="Países"   last />
                 </div>
               </div>
             </motion.div>

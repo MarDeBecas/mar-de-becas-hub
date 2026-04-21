@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { MessageCircle, CheckCircle2 } from "lucide-react";
 import juntosImage from "@/assets/juntos.jpg";
 
-const WHATSAPP_NUMBER = "51999999999"; // ← número real de Marilú con código de país
+const WHATSAPP_NUMBER = "51979719879";
 
 const bullets = [
   "Mentoría 100% online — desde cualquier país de Latam",
