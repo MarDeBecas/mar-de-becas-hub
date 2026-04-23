@@ -365,7 +365,7 @@ export function HeroSection() {
             aria-hidden
           />
 
-          <div className="relative z-10 flex h-full min-h-0 w-full min-w-0 flex-1 flex-col items-center overflow-hidden font-display">
+          <div className="relative z-10 flex h-full min-h-0 w-full min-w-0 flex-1 flex-col items-center overflow-hidden font-sans">
             <div
               className="
                 flex h-full min-h-0 w-full max-w-[36rem] flex-col justify-center gap-y-[clamp(0.4rem,1.65dvh,1.15rem)]
@@ -388,7 +388,7 @@ export function HeroSection() {
             <div className="w-full max-w-[30rem] sm:max-w-[34rem] lg:max-w-[38rem]">
               <h1
                 className="
-                  font-serif text-[clamp(1.9rem,calc(1.35rem+3vw+0.65dvh),3.55rem)] font-semibold uppercase leading-[1.07] tracking-[0.055em] text-[#F8F4EE]
+                  font-sans text-[clamp(1.9rem,calc(1.35rem+3vw+0.65dvh),3.55rem)] font-bold uppercase leading-[1.08] tracking-[0.04em] text-[#F8F4EE]
                   antialiased
                 "
               >
