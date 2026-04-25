@@ -209,7 +209,7 @@ export function ServicesSection() {
                 borderRadius: "16px",
               }}
             >
-              Agendar sesión gratuita
+              Agendar tu sesión
               <ArrowRight className="w-4 h-4" />
             </motion.a>
           </div>
