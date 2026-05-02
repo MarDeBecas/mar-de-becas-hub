@@ -3,6 +3,8 @@ import newsAniversario from "@/assets/news-aniversario.jpg";
 import newsPronabec from "@/assets/news-pronabec.jpg";
 import newsAiesec from "@/assets/news-aiesec.png";
 import newsImpacto2025 from "@/assets/news-impacto-2025.jpg";
+import newsFoundherGlasgow from "@/assets/news-foundher-glasgow.jpg";
+import newsFoundherScholarships from "@/assets/news-foundher-scholarships.jpg";
 
 const WHATSAPP_URL = "https://wa.link/mhr4d9";
 const LINKEDIN_COMPANY = "https://www.linkedin.com/company/mardebecas/";
@@ -38,19 +40,40 @@ type NewsItem = {
   type: NewsType;
 };
 
+// ⭐ NOTICIA PRINCIPAL (CAMBIADA A FOUNDHER GLASGOW)
 const featuredNews: NewsItem & { lead: string } = {
-  id: 6,
-  title: "Semana de las Experiencias AIESEC",
-  lead: "Un espacio para compartir, aprender y conectar con líderes que están transformando el mundo.",
+  id: 7,
+  title: "FoundHer en Glasgow: una experiencia internacional transformadora",
+  lead: "Desde Perú hasta Escocia: una historia real de liderazgo y becas internacionales.",
   description:
-    "Mi camino de liderazgo a través de becas internacionales. Conecta con historias reales y oportunidades AIESEC.",
+  "Una experiencia que conecta liderazgo femenino con oportunidades globales en Glasgow.",
   preview: "",
-  url: "https://www.linkedin.com/feed/update/urn:li:activity:7407513742248194049",
-  image: newsAiesec,
-  type: "evento",
-};
+  url: "https://www.linkedin.com/posts/marilu-nu%C3%B1ez-sanchez_foundher-scotland-glasgow-ugcPost-7439940932726231040-NuAV",
+  image: newsFoundherGlasgow,
+  type: "historia",
+  };
 
 const secondaryNews: NewsItem[] = [
+  {
+    id: 8,
+    title: "FoundHer Scholarships: formando líderes globales",
+    preview: "Un programa que impulsa a mujeres a alcanzar oportunidades internacionales.",
+    description: "Historias de liderazgo y acceso a becas a través de FoundHer.",
+    url: "https://www.linkedin.com/posts/marilu-nu%C3%B1ez-sanchez_foundher-scholarships-leaders-ugcPost-7445465453361057792-FxpF",
+    image: newsFoundherScholarships,
+    type: "logro",
+    },
+  {
+     id: 6,
+     title: "Semana de las Experiencias AIESEC",
+     preview: "Un espacio para compartir, aprender y conectar con líderes que están transformando el mundo.",
+     description:
+       "Mi camino de liderazgo a través de becas internacionales. Conecta con historias reales y oportunidades AIESEC.",
+     url: "https://www.linkedin.com/feed/update/urn:li:activity:7407513742248194049",
+     image: newsAiesec,
+     type: "evento",
+   },
+  
   {
     id: 1,
     title: "Impacto 2025",
@@ -77,6 +100,16 @@ const secondaryNews: NewsItem[] = [
     url: "https://www.linkedin.com/posts/marilu-nu%C3%B1ez-sanchez_hace-un-a%C3%B1o-naci%C3%B3-mar-de-becas-una-plataforma-activity-7410703523736088576-M6C3?utm_source=share&utm_medium=member_desktop&rcm=ACoAABPIVs4BdVcLbbdcEIGyw8c3MxGmABxi0KA",
     image: newsAniversario,
     type: "historia",
+  },
+  {
+    id: 6,
+    title: "Semana de las Experiencias AIESEC",
+    preview: "Un espacio para compartir, aprender y conectar con líderes que están transformando el mundo.",
+    description:
+      "Mi camino de liderazgo a través de becas internacionales. Conecta con historias reales y oportunidades AIESEC.",
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7407513742248194049",
+    image: newsAiesec,
+    type: "evento",
   },
 ];
 

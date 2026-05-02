@@ -144,7 +144,7 @@ export function AboutSection() {
                 </span>
                 <span className="space-y-0.5">
                   <span className="block text-xs font-bold uppercase tracking-wide sm:text-[0.8125rem]">
-                    Agenda una asesoría gratuita
+                    Agenda una asesoría
                   </span>
                   <span className="block text-xs font-medium text-white/90 sm:text-[0.8125rem]">
                     Da el primer paso hacia tu beca
