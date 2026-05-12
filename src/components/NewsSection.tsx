@@ -212,7 +212,7 @@ export function NewsSection() {
                 <Users className="h-5 w-5" strokeWidth={2} aria-hidden />
               </div>
               <p className="text-sm leading-snug text-muted-foreground sm:text-[0.9375rem]">
-                <strong className="font-bold text-[#2059BA]">80+</strong> estudiantes lograron becas internacionales
+                <strong className="font-bold text-[#2059BA]">100+</strong> estudiantes lograron becas internacionales
               </p>
             </div>
             <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:text-left">
@@ -228,7 +228,7 @@ export function NewsSection() {
                 <Globe className="h-5 w-5" strokeWidth={2} aria-hidden />
               </div>
               <p className="text-sm leading-snug text-muted-foreground sm:text-[0.9375rem]">
-                <strong className="font-bold text-[#2059BA]">20+</strong> países alcanzados por nuestra comunidad
+                <strong className="font-bold text-[#2059BA]">más de 4</strong> países alcanzados por nuestra comunidad
               </p>
             </div>
           </div>
@@ -241,6 +241,37 @@ export function NewsSection() {
           <div className="flex min-h-0 flex-col gap-4">
             {secondaryNews.map((item) => (
               <SecondaryCard key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 rounded-3xl border border-border/60 bg-card px-4 py-6 shadow-sm sm:px-8 sm:py-7">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#2059BA]/15 bg-[#2059BA]/[0.08] px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#2059BA]">
+              🎬 Revive nuestros eventos con becarios
+            </span>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Pronto compartiremos los mejores momentos en video de nuestras mentorías, talleres y encuentros de la comunidad.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {[
+              "Taller de becas",
+              "Mentorías en vivo",
+              "Encuentros de comunidad",
+            ].map((title, index) => (
+              <div key={index} className="overflow-hidden rounded-3xl border border-border/70 bg-[#0f1723] p-5 text-white shadow-sm transition hover:-translate-y-1">
+                <div className="mb-4 flex h-40 items-center justify-center rounded-3xl bg-[#111827]/80">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA]">
+                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M10 8l6 4-6 4V8z" />
+                      <path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z" />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="text-sm font-semibold tracking-tight text-white">{title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-white/70">Próximamente, aquí podrás revivir nuestros eventos y charlas con becarios.</p>
+              </div>
             ))}
           </div>
         </div>

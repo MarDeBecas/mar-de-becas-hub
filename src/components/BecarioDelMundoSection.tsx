@@ -272,7 +272,7 @@ export function BecarioDelMundoSection() {
                       Sesión 04: Perfil Competitivo
                     </p>
                     <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>
-                      Con Marilú Nuñez · 36 participantes
+                      Con Marilu Nuñez · 36 participantes
                     </p>
                   </div>
                 </div>
