@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, BookOpen, ChevronRight, GraduationCap, Mail, Shield, type LucideIcon } from "lucide-react";
 import logo from "@/assets/logo-mar-de-becas.png";
 
@@ -6,22 +7,22 @@ const WHATSAPP_URL = "https://wa.link/mhr4d9";
 
 const footerLinks = {
   servicios: [
-    { label: "Asesoría de Becas", href: "#servicios" },
-    { label: "Preparación de Documentos", href: "#servicios" },
-    { label: "Coaching de Entrevistas", href: "#servicios" },
-    { label: "Talleres Grupales", href: "#servicios" },
+    { key: "scholarshipAdvising", href: "#servicios" },
+    { key: "documentPrep", href: "#servicios" },
+    { key: "interviewCoaching", href: "#servicios" },
+    { key: "groupWorkshops", href: "#servicios" },
   ],
   recursos: [
-    { label: "Becas Destacadas", href: "#servicios" },
-    { label: "Noticias", href: "#noticias" },
-    { label: "FAQ", href: "#contacto" },
-    { label: "Guías y Plantillas", href: "#servicios" },
+    { key: "featuredScholarships", href: "#servicios" },
+    { key: "news", href: "#noticias" },
+    { key: "faq", href: "#contacto" },
+    { key: "guides", href: "#servicios" },
   ],
   legal: [
-    { label: "Política de Privacidad", href: "#", placeholder: true },
-    { label: "Términos de Servicio", href: "#", placeholder: true },
-    { label: "Cookies", href: "#", placeholder: true },
-    { label: "Libro de Reclamaciones", href: "#", placeholder: true },
+    { key: "privacy", href: "#", placeholder: true },
+    { key: "terms", href: "#", placeholder: true },
+    { key: "cookies", href: "#", placeholder: true },
+    { key: "claims", href: "#", placeholder: true },
   ],
 };
 
@@ -47,17 +48,19 @@ function FooterLink({
   href,
   label,
   placeholder,
+  soonLabel = "Coming soon",
 }: {
   href: string;
   label: string;
   placeholder?: boolean;
+  soonLabel?: string;
 }) {
   if (placeholder) {
     return (
       <li>
         <span
           className="flex items-center gap-2 py-1.5 text-sm text-white/45"
-          title="Próximamente"
+          title={soonLabel}
         >
           <span className="h-1.5 w-1.5 shrink-0 rounded-full opacity-50" style={{ backgroundColor: accent }} aria-hidden />
           <span className="min-w-0 flex-1">{label}</span>
@@ -81,6 +84,7 @@ function FooterLink({
 }
 
 export function Footer() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
 
   return (
@@ -92,12 +96,12 @@ export function Footer() {
             <div>
               <img src={logo} alt="Mar de Becas" className="mb-6 h-14 w-auto sm:h-16" />
               <p className="max-w-sm text-sm leading-relaxed text-white/75 sm:text-[0.9375rem]">
-                Impulsamos el camino de talentosos profesionales hacia las mejores{" "}
+                {t("footer.description_1")}{" "}
                 <span className="font-semibold" style={{ color: accent }}>
-                  becas internacionales.
+                  {t("footer.description_2")}
                 </span>
               </p>
-              <p className="mt-4 text-sm text-white/80">Tu sueño académico, nuestra misión.</p>
+              <p className="mt-4 text-sm text-white/80">{t("footer.mission")}</p>
             </div>
 
             <div className="flex flex-wrap gap-2.5">
@@ -147,8 +151,8 @@ export function Footer() {
                   <Mail className="h-5 w-5" strokeWidth={2} />
                 </div>
                 <div>
-                  <p className="font-semibold leading-snug text-white">Recibe oportunidades y recursos exclusivos</p>
-                  <p className="mt-1 text-xs leading-relaxed text-white/55">Tips, convocatorias y novedades en tu correo.</p>
+                  <p className="font-semibold leading-snug text-white">{t("footer.newsletter_title")}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-white/55">{t("footer.newsletter_text")}</p>
                 </div>
               </div>
               <form
@@ -162,7 +166,7 @@ export function Footer() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Tu correo electrónico"
+                  placeholder={t("footer.email_placeholder")}
                   className="min-w-0 flex-1 rounded-xl border border-white/10 bg-[#060912] px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none ring-[#A07DE2]/0 transition focus:border-[#A07DE2]/40 focus:ring-2 focus:ring-[#A07DE2]/25"
                   autoComplete="email"
                 />
@@ -170,13 +174,13 @@ export function Footer() {
                   type="submit"
                   className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white shadow-md transition hover:brightness-110"
                   style={{ backgroundColor: accent }}
-                  aria-label="Ir a contacto para completar tu interés"
+                  aria-label={t("footer.contact_aria")}
                 >
                   <ArrowRight className="h-5 w-5" strokeWidth={2} />
                 </button>
               </form>
               <p className="mt-3 text-[0.6875rem] leading-relaxed text-white/40">
-                Por ahora te llevamos a la sección de contacto; pronto activaremos el boletín.
+                {t("footer.newsletter_note")}
               </p>
             </div>
           </div>
@@ -184,26 +188,26 @@ export function Footer() {
           {/* Enlaces */}
           <div className="grid gap-10 sm:grid-cols-3 lg:col-span-8 lg:gap-8">
             <div>
-              <FooterColumnHeader icon={GraduationCap} title="Servicios" />
+              <FooterColumnHeader icon={GraduationCap} title={t("footer.services")} />
               <ul className="space-y-0.5">
                 {footerLinks.servicios.map((link) => (
-                  <FooterLink key={link.label} href={link.href} label={link.label} />
+                  <FooterLink key={link.key} href={link.href} label={t(`footer.links.${link.key}`)} />
                 ))}
               </ul>
             </div>
             <div>
-              <FooterColumnHeader icon={BookOpen} title="Recursos" />
+              <FooterColumnHeader icon={BookOpen} title={t("footer.resources")} />
               <ul className="space-y-0.5">
                 {footerLinks.recursos.map((link) => (
-                  <FooterLink key={link.label} href={link.href} label={link.label} />
+                  <FooterLink key={link.key} href={link.href} label={t(`footer.links.${link.key}`)} />
                 ))}
               </ul>
             </div>
             <div>
-              <FooterColumnHeader icon={Shield} title="Legal" />
+              <FooterColumnHeader icon={Shield} title={t("footer.legal")} />
               <ul className="space-y-0.5">
                 {footerLinks.legal.map((link) => (
-                  <FooterLink key={link.label} href={link.href} label={link.label} placeholder={link.placeholder} />
+                  <FooterLink key={link.key} href={link.href} label={t(`footer.links.${link.key}`)} placeholder={link.placeholder} soonLabel={t("footer.soon")} />
                 ))}
               </ul>
             </div>
@@ -212,9 +216,9 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/[0.08] pt-8 text-center text-xs text-white/50 sm:flex-row sm:text-left sm:text-sm">
-          <p>© {new Date().getFullYear()} Mar de Becas. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Mar de Becas. {t("footer.rights")}</p>
           <p className="text-white/70">
-            Hecho con <span className="text-red-500">❤️</span> para futuros becarios
+            {t("footer.made")}
           </p>
         </div>
       </div>

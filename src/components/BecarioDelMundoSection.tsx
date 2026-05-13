@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useCountUp } from "@/hooks/useCountUp";
 import {
   Target, ClipboardList, Lightbulb, ArrowRight,
@@ -68,6 +69,7 @@ function StatCounter({ end, suffix = "", label, last = false }: { end: number; s
 }
 
 export function BecarioDelMundoSection() {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -134,7 +136,7 @@ export function BecarioDelMundoSection() {
                   color: "#FFC45F",
                 }}
               >
-                Programa Intensivo
+                {t("course.badge")}
               </span>
 
               {/* Headline */}
@@ -142,11 +144,11 @@ export function BecarioDelMundoSection() {
                 className="font-sans text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] mb-5"
                 style={{ textShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
               >
-                Consigue una beca
+                {t("course.title_1")}
                 <br />
-                <span style={{ color: "#FFC45F" }}>internacional</span>
+                <span style={{ color: "#FFC45F" }}>{t("course.title_2")}</span>
                 <br />
-                paso a paso
+                {t("course.title_3")}
               </h2>
 
               {/* Subheadline */}
@@ -154,7 +156,7 @@ export function BecarioDelMundoSection() {
                 className="text-lg leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
                 style={{ color: "rgba(255,255,255,0.75)" }}
               >
-                Te guiamos paso a paso con mentoría real para que logres una beca en el extranjero.
+                {t("course.subtitle")}
               </p>
 
               {/* CTA */}
@@ -168,11 +170,11 @@ export function BecarioDelMundoSection() {
                   className="inline-flex items-center gap-3 font-black text-base px-8 py-4 rounded-2xl shadow-xl"
                   style={{ background: "linear-gradient(135deg,#FFC45F,#f5a623)", color: "#0c1f36" }}
                 >
-                  Ver programa completo
+                  {t("course.cta")}
                   <ArrowRight className="w-5 h-5" />
                 </motion.a>
                 <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Cupos limitados · Próxima generación inicia pronto
+                  {t("course.limited")}
                 </p>
               </div>
 
@@ -197,7 +199,7 @@ export function BecarioDelMundoSection() {
                   ))}
                 </div>
                 <span className="text-xs font-semibold" style={{ color: "rgba(255,255,255,0.85)" }}>
-                  +30 estudiantes ya aceptados en el extranjero
+                  {t("course.accepted")}
                 </span>
               </div>
             </motion.div>
@@ -239,7 +241,7 @@ export function BecarioDelMundoSection() {
                 <div className="rounded-xl overflow-hidden relative">
                   <img
                     src={becarioGroupImage}
-                    alt="Sesión en vivo"
+                    alt={t("course.live")}
                     className="w-full h-64 md:h-72 object-cover object-top"
                     style={{ filter: "brightness(0.82) saturate(0.95)" }}
                   />
@@ -260,19 +262,19 @@ export function BecarioDelMundoSection() {
                     }}
                   >
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-[11px] font-bold text-white/80">Sesión en vivo</span>
+                    <span className="text-[11px] font-bold text-white/80">{t("course.live")}</span>
                   </div>
 
                   {/* Texto inferior */}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: "#FFC45F" }}>
-                      Sesiones en vivo con mentoría real
+                      {t("course.liveMentoring")}
                     </p>
                     <p className="text-white font-black text-xl leading-tight">
-                      Sesión 04: Perfil Competitivo
+                      {t("course.session")}
                     </p>
                     <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>
-                      Con Marilu Nuñez · 36 participantes
+                      {t("course.with")}
                     </p>
                   </div>
                 </div>
@@ -282,9 +284,9 @@ export function BecarioDelMundoSection() {
                   className="flex mt-4 rounded-xl"
                   style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
                 >
-                  <StatCounter end={200} suffix="+" label="Lista de espera" />
-                  <StatCounter end={36} suffix="+" label="Alumnos"  />
-                  <StatCounter end={4}  suffix=""  label="Países"   last />
+                  <StatCounter end={200} suffix="+" label={t("course.waitlist")} />
+                  <StatCounter end={36} suffix="+" label={t("course.students")}  />
+                  <StatCounter end={4}  suffix=""  label={t("course.countries")}   last />
                 </div>
               </div>
             </motion.div>

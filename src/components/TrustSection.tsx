@@ -1,4 +1,5 @@
 import aliadosImage from "@/assets/aliados.png";
+import { useTranslation } from "react-i18next";
 import logoAiesec from "@/assets/logo-aiesec.png";
 import logoIise from "@/assets/logo-iise.png";
 import logoStudiesPlanet from "@/assets/logo-studies-planet.png";
@@ -34,15 +35,16 @@ const partnerLogos = [
 ];
 
 export function TrustSection() {
+  const { t } = useTranslation();
   return (
     <section className="pt-4 pb-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
-            Alianzas
+            {t("trust.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
-            Confían en nosotros
+            {t("trust.title")}
           </h2>
         </div>
         

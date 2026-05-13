@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import emmyImage from "@/assets/testimonial-emmy.jpg";
 import nayvImage from "@/assets/testimonial-nayvi.jpg";
@@ -120,8 +121,18 @@ function TestimonialCard({
 }
 
 export function TestimonialsSection() {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const translatedTestimonials = t("testimonials.items", { returnObjects: true }) as Array<{
+    result: string;
+    university: string;
+    full: string;
+  }>;
+  const localizedTestimonials = testimonials.map((item, index) => ({
+    ...item,
+    ...translatedTestimonials[index],
+  }));
 
   return (
     <section
@@ -147,15 +158,15 @@ export function TestimonialsSection() {
               border: "1px solid rgba(32,89,186,0.2)",
             }}
           >
-            Resultados reales
+            {t("testimonials.badge")}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3 leading-tight">
-            Historias reales de estudiantes
+            {t("testimonials.title_1")}
             <br />
-            <span style={{ color: "#2059BA" }}>que ya lo lograron</span>
+            <span style={{ color: "#2059BA" }}>{t("testimonials.title_2")}</span>
           </h2>
           <p className="font-sans text-gray-500 text-base md:text-lg max-w-xl mx-auto">
-            Aceptados en universidades y becas internacionales.
+            {t("testimonials.subtitle")}
           </p>
         </motion.div>
 
@@ -172,7 +183,7 @@ export function TestimonialsSection() {
             style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
           >
             <div className="flex gap-4 items-start" style={{ width: "max-content" }}>
-              {testimonials.map((t, i) => (
+              {localizedTestimonials.map((t, i) => (
                 <TestimonialCard
                   key={t.id}
                   t={t}
@@ -201,7 +212,7 @@ export function TestimonialsSection() {
             className="inline-flex items-center gap-3 font-display font-black text-base text-white px-8 py-4 shadow-xl"
             style={{ background: "linear-gradient(135deg,#2059BA,#A07DE2)", borderRadius: "18px" }}
           >
-            Ver programa completo
+            {t("testimonials.cta")}
             <ArrowRight className="w-5 h-5" />
           </motion.a>
         </motion.div>

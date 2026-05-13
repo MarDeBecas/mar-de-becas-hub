@@ -1,0 +1,207 @@
+{
+  "nav": {
+    "inicio": "Home",
+    "nosotros": "About",
+    "servicios": "Services",
+    "curso": "Course",
+    "testimonios": "Testimonials",
+    "noticias": "News",
+    "contacto": "Contact"
+  },
+  "language": {
+    "label": "ES"
+  },
+  "hero": {
+    "rating": "4.9/5",
+    "becas_ganadas": "+500 Scholarships Won",
+    "titulo": "Your path to your first international scholarship",
+    "subtitulo": "Expert, personalized guidance to win outstanding international scholarships.",
+    "agenda_asesoria": "Schedule a consultation",
+    "casos_exito": "Success stories",
+    "explora_becas": "Explore scholarships"
+  },
+  "about": {
+    "titulo": "Win an international scholarship with expert guidance",
+    "subtitulo": "We guide you step by step to study at the world's best universities with full funding.",
+    "badge": "About Mar de Becas",
+    "fundadora": "Marilu Nunez",
+    "cargo": "Founder & Lead Advisor",
+    "descripcion": "Industrial Engineer with an MSc in Entrepreneurship and Innovation from the University of Edinburgh. She founded Mar de Becas to guide Latin American students toward full scholarships in the UK and other countries.",
+    "experiencia": "+8 years of experience supporting international scholarship applications.",
+    "ganadora": "Winner of the Bicentennial Generation Scholarship 2024 for postgraduate studies in the UK.",
+    "embajadora": "Selected as a young leader and PRONABEC ambassador, sharing her experience with the community.",
+    "estudiantes_asesorados": "Students successfully advised",
+    "becas_obtenidas": "in full scholarships obtained",
+    "miembros_comunidad": "Members in our community",
+    "estudiantes_ayudados": "+100 students have already won scholarships with our guidance.",
+    "agenda": "Schedule a consultation",
+    "primer_paso": "Take the first step toward your scholarship",
+    "alt_fundadora": "Marilu Nunez at her graduation ceremony",
+    "experiencia_real": "Real international experience"
+  },
+  "services": {
+    "badge": "Services",
+    "title": "How we can help you",
+    "subtitle": "We turn your profile into a winning story and take you from the idea to the scholarship",
+    "schedule": "Schedule your session",
+    "start": "Start now",
+    "next": "Next service",
+    "items": [
+      {
+        "title": "Profile exploration",
+        "subtitle": "Your starting point",
+        "description": "A 1:1 session to map your academic and professional profile, identify your strengths, and find the ideal scholarship for you. No strings attached.",
+        "imageAlt": "Profile exploration session"
+      },
+      {
+        "title": "Document preparation",
+        "subtitle": "Documents that make an impact",
+        "description": "Academic CVs, motivation letters, and essays written to international standards so your profile stands out to selection committees.",
+        "imageAlt": "Academic document preparation"
+      },
+      {
+        "title": "Complete application",
+        "subtitle": "360-degree support",
+        "description": "Personalized review and feedback at every stage, from university selection to final submission.",
+        "imageAlt": "Scholarship application process"
+      },
+      {
+        "title": "Interview preparation",
+        "subtitle": "Communicate with confidence",
+        "description": "Real mock interviews with effective communication techniques so you arrive confident and prepared for the most important day of your process.",
+        "imageAlt": "Scholarship interview preparation"
+      }
+    ]
+  },
+  "course": {
+    "badge": "Intensive Program",
+    "title_1": "Win an",
+    "title_2": "international",
+    "title_3": "scholarship step by step",
+    "subtitle": "We guide you step by step with real mentoring so you can win a scholarship abroad.",
+    "cta": "View full program",
+    "limited": "Limited spots · Next cohort starts soon",
+    "accepted": "+30 students already accepted abroad",
+    "live": "Live session",
+    "liveMentoring": "Live sessions with real mentoring",
+    "session": "Session 04: Competitive Profile",
+    "with": "With Marilu Nunez · 36 participants",
+    "waitlist": "Waitlist",
+    "students": "Students",
+    "countries": "Countries"
+  },
+  "testimonials": {
+    "badge": "Real results",
+    "title_1": "Real student stories",
+    "title_2": "from people who made it",
+    "subtitle": "Accepted to international universities and scholarships.",
+    "cta": "View full program",
+    "items": [
+      {
+        "result": "Accepted in the United Kingdom",
+        "university": "University of Edinburgh · Bicentennial Scholarship",
+        "full": "Marilu's help throughout this process was essential. From the first consultation I was able to create my timeline for the key steps. Whenever doubts came up, I always turned to her and she was always willing to help. I am very grateful for how consistently she answered all the messages I sent her, because there were truly many."
+      },
+      {
+        "result": "Accepted in Ireland",
+        "university": "University of Galway · Ireland Fellowship",
+        "full": "Thanks to Marilu's mentoring, I strengthened my essays and prepared confidently for the interview with the Embassy of Ireland. Her guidance was essential to winning the scholarship. Beyond academics, she helped me trust myself, and I will always be grateful for her generosity and commitment."
+      },
+      {
+        "result": "Accepted in the United Kingdom",
+        "university": "University College London · Bicentennial Scholarship",
+        "full": "I recommend the Mar de Becas team to anyone who wants to pursue a master's degree abroad. Their guidance was key to understanding the process, comparing options, and accessing funding through scholarships. I value their experience, warmth, and support at every stage of the journey."
+      },
+      {
+        "result": "Accepted in the United Kingdom",
+        "university": "University of Southampton · Bicentennial Scholarship",
+        "full": "Marilu, I do not have enough words to thank you for your unconditional support. Your expert guidance with the documents, together with your constant motivation, was essential to completing my application. Your advice is a treasure. Choosing the right advisor, like you, opens a world of possibilities."
+      }
+    ]
+  },
+  "trust": {
+    "badge": "Partners",
+    "title": "They trust us"
+  },
+  "news": {
+    "badge": "News",
+    "titulo": "Real stories that bring you closer to your scholarship",
+    "subtitulo": "Get inspired by experiences, achievements, and opportunities from our community.",
+    "estudiantes_logrados": "students achieved international scholarships",
+    "financiamiento_obtenido": "in funding obtained",
+    "paises_alcanzados": "countries reached by our community",
+    "mas_de": "more than 4",
+    "featured": "Featured",
+    "read": "Read full story",
+    "viewAll": "View all stories",
+    "want": "I want to achieve this too",
+    "imagineStrong": "Can you imagine being next?",
+    "imagineText": "You can make it too. Start your journey today.",
+    "types": {
+      "evento": "Event",
+      "logro": "Achievement",
+      "testimonio": "Testimonial",
+      "historia": "Story"
+    },
+    "videos_titulo": "Relive our events with scholars",
+    "videos_subtitulo": "Soon we will share the best video moments from our mentoring sessions, workshops, and community gatherings.",
+    "taller_becas": "Scholarship Workshop",
+    "mentorias_vivo": "Live Mentoring",
+    "encuentros_comunidad": "Community Gatherings",
+    "proximamente": "Coming soon, you will be able to relive our events and talks with scholars here."
+  },
+  "contact": {
+    "titulo": "Ready to win your scholarship?",
+    "subtitulo": "Write to us and we will respond in less than 24 hours. Everything is online, from anywhere in Latam.",
+    "badge": "Contact Us",
+    "envia_mensaje": "Send us a message",
+    "responderemos": "We will respond via WhatsApp in less than 24h",
+    "tu_nombre": "Your name",
+    "tu_correo": "Your email",
+    "mensaje": "Message",
+    "nombre_placeholder": "What is your name?",
+    "correo_placeholder": "email@example.com",
+    "mensaje_placeholder": "Tell us about your profile and which scholarship interests you...",
+    "enviar": "Send via WhatsApp",
+    "whatsapp_ready": "When you click, WhatsApp will open with your message ready",
+    "siguenos": "Follow us on social media",
+    "alt_equipo": "Mar de Becas team",
+    "bullets": [
+      "100% online mentoring from any country in Latam",
+      "Live sessions with experts who have already won scholarships",
+      "Personalized support at every stage",
+      "Active community of Latin American scholars"
+    ],
+    "mensaje_whatsapp": "Hi Marilu, I'm {name}.\n\n{message}\n\nMy email: {email}"
+  },
+  "footer": {
+    "description_1": "We empower talented professionals on their path to the best",
+    "description_2": "international scholarships.",
+    "mission": "Your academic dream, our mission.",
+    "newsletter_title": "Receive opportunities and exclusive resources",
+    "newsletter_text": "Tips, calls, and updates in your inbox.",
+    "email_placeholder": "Your email",
+    "contact_aria": "Go to contact to complete your interest",
+    "newsletter_note": "For now we take you to the contact section; soon we will activate the newsletter.",
+    "services": "Services",
+    "resources": "Resources",
+    "legal": "Legal",
+    "soon": "Coming soon",
+    "rights": "All rights reserved.",
+    "made": "Made for future scholars",
+    "links": {
+      "scholarshipAdvising": "Scholarship Advising",
+      "documentPrep": "Document Preparation",
+      "interviewCoaching": "Interview Coaching",
+      "groupWorkshops": "Group Workshops",
+      "featuredScholarships": "Featured Scholarships",
+      "news": "News",
+      "faq": "FAQ",
+      "guides": "Guides and Templates",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookies",
+      "claims": "Complaints Book"
+    }
+  }
+}

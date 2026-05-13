@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { useTranslation } from "react-i18next";
 import { MessageCircle, Search, Star } from "lucide-react";
 import florenceImage from "@/assets/hero/Mujer_Florencia.png";
 
@@ -237,6 +238,7 @@ function HeroLightTrails() {
 }
 
 export function HeroSection() {
+  const { t } = useTranslation();
   const particleGradId = `hpart-${useId().replace(/:/g, "")}`;
 
   return (
@@ -370,10 +372,10 @@ export function HeroSection() {
             >
               <span className="flex items-center gap-1 text-[#FFC45F]" aria-hidden>
                 <Star className="h-3.5 w-3.5 fill-[#FFC45F] text-[#FFC45F] drop-shadow-[0_0_10px_rgba(255,196,95,0.85)]" />
-                <span className="text-white">4.9/5</span>
+                <span className="text-white">{t('hero.rating')}</span>
               </span>
               <span className="text-white/40">|</span>
-              <span className="text-white">+500 Becas Ganadas</span>
+              <span className="text-white">{t('hero.becas_ganadas')}</span>
             </div>
 
             <div className="w-full max-w-[30rem] sm:max-w-[34rem] lg:max-w-[38rem]">
@@ -383,7 +385,7 @@ export function HeroSection() {
                   antialiased
                 "
               >
-                Tu camino hacia tu primera beca internacional
+                {t('hero.titulo')}
               </h1>
             </div>
 
@@ -394,7 +396,7 @@ export function HeroSection() {
               "
               style={{ marginTop: "clamp(1.75rem, 4.5dvh, 2.85rem)" }}
             >
-              Asesoría experta y personalizada para ganar becas internacionales de excelencia.
+              {t('hero.subtitulo')}
             </p>
 
             <div
@@ -421,7 +423,7 @@ export function HeroSection() {
                   "
                 >
                   <MessageCircle className="h-[1.25rem] w-[1.25rem] shrink-0" strokeWidth={2} aria-hidden />
-                  Agenda una asesoría
+                  {t('hero.agenda_asesoria')}
                 </a>
               </span>
               <a
@@ -433,7 +435,7 @@ export function HeroSection() {
                   backdrop-blur-md transition hover:border-white/35 hover:bg-white/[0.14]
                 "
               >
-                Casos de éxito
+                {t('hero.casos_exito')}
               </a>
             </div>
 
@@ -445,7 +447,7 @@ export function HeroSection() {
                     className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap px-1 py-0.5 text-[clamp(0.62rem,1.35dvh,0.78rem)] font-semibold uppercase tracking-[0.2em] text-white/85 transition hover:text-white"
                   >
                     <Search className="h-3.5 w-3.5 shrink-0 opacity-90 sm:h-4 sm:w-4" strokeWidth={2} aria-hidden />
-                    Explora las becas
+                    {t('hero.explora_becas')}
                   </a>
                   <span className="h-px min-w-8 flex-1 bg-gradient-to-l from-transparent to-white/25 sm:min-w-12" aria-hidden />
               </div>

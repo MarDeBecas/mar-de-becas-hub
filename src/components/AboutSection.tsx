@@ -1,4 +1,5 @@
 import { Calendar, Globe, GraduationCap, MapPin, School, Star, Trophy, Users } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 import mariluGraduation from "@/assets/marilu-graduation.jpg";
 import emmyImage from "@/assets/testimonial-emmy.jpg";
 import nayvImage from "@/assets/testimonial-nayvi.jpg";
@@ -63,6 +64,7 @@ function CountStat({
 }
 
 export function AboutSection() {
+  const { t } = useTranslation();
   return (
     <section id="nosotros" className="bg-background py-12 md:py-16 lg:py-20">
       <div className="container-wide">
@@ -70,14 +72,13 @@ export function AboutSection() {
         <div className="mx-auto mb-8 max-w-3xl text-center lg:mb-10">
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#2059BA]/15 bg-[#2059BA]/[0.06] px-4 py-2 text-sm font-semibold text-[#2059BA]">
             <GraduationCap className="h-4 w-4 shrink-0" aria-hidden />
-            Sobre Mar de Becas
+            {t('about.badge')}
           </span>
           <h2 className="text-balance font-sans text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-[2.65rem] md:leading-[1.12]">
-            Consigue una beca internacional con{" "}
-            <span className="text-[#2059BA]">acompañamiento experto</span>
+            {t('about.titulo')}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Te guiamos paso a paso para estudiar en las mejores universidades del mundo con financiamiento completo.
+            {t('about.subtitulo')}
           </p>
         </div>
 
@@ -89,24 +90,22 @@ export function AboutSection() {
           {/* Columna derecha en lg: métricas + texto */}
           <div className="flex min-w-0 flex-col gap-4 font-sans lg:order-2">
             <div className="grid w-full grid-cols-3 gap-2 sm:gap-2.5">
-              <CountStat end={100} label="Estudiantes asesorados con éxito" icon={Users} />
-              <StatCard icon={GraduationCap} label="en becas completas obtenidas" value={<>US$&nbsp;519,364+</>} />
-              <CountStat end={2500} label="Miembros en nuestra comunidad" icon={Users} />
+              <CountStat end={100} label={t('about.estudiantes_asesorados')} icon={Users} />
+              <StatCard icon={GraduationCap} label={t('about.becas_obtenidas')} value={<>US$&nbsp;519,364+</>} />
+              <CountStat end={2500} label={t('about.miembros_comunidad')} icon={Users} />
             </div>
 
             <div className="flex min-w-0 flex-col gap-3.5 lg:gap-4">
               <div className="space-y-2">
-              <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-[1.65rem]">Marilu Núñez</h3>
+              <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-[1.65rem]">{t('about.fundadora')}</h3>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#2059BA]/15 bg-[#2059BA]/[0.06] px-2.5 py-1 text-xs font-semibold text-[#2059BA] sm:text-[0.8125rem]">
                 <Star className="h-3 w-3 fill-[#2059BA]/25 text-[#2059BA]" aria-hidden />
-                Fundadora &amp; Asesora Principal
+                {t('about.cargo')}
               </span>
               </div>
 
               <p className="max-w-2xl text-sm leading-snug text-muted-foreground sm:text-[0.9375rem] sm:leading-snug">
-              Ingeniera Industrial con MSc en Emprendimiento e Innovación en{" "}
-              <strong className="font-semibold text-foreground">University of Edinburgh</strong>. Fundó Mar de Becas
-              para acompañar a estudiantes latinoamericanos a obtener becas completas en el Reino Unido y otros países.
+              {t('about.descripcion')}
               </p>
 
               <ul className="max-w-2xl space-y-2.5 text-sm leading-snug text-foreground sm:text-[0.9375rem]">
@@ -114,20 +113,20 @@ export function AboutSection() {
                 <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA]">
                   <Globe className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
                 </span>
-                <span className="min-w-0">+8 años de experiencia acompañando postulaciones a becas internacionales.</span>
+                <span className="min-w-0">{t('about.experiencia')}</span>
               </li>
               <li className="flex gap-2.5">
                 <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA]">
                   <School className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
                 </span>
-                <span className="min-w-0">Ganadora de la Beca Generación del Bicentenario 2024 para posgrado en el Reino Unido.</span>
+                <span className="min-w-0">{t('about.ganadora')}</span>
               </li>
               <li className="flex gap-2.5">
                 <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA]">
                   <Trophy className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
                 </span>
                 <span className="min-w-0">
-                  Seleccionada como joven líder y embajadora PRONABEC, compartiendo su experiencia con la comunidad.
+                  {t('about.embajadora')}
                 </span>
               </li>
               </ul>
@@ -144,10 +143,10 @@ export function AboutSection() {
                 </span>
                 <span className="space-y-0.5">
                   <span className="block text-xs font-bold uppercase tracking-wide sm:text-[0.8125rem]">
-                    Agenda una asesoría
+                    {t('about.agenda')}
                   </span>
                   <span className="block text-xs font-medium text-white/90 sm:text-[0.8125rem]">
-                    Da el primer paso hacia tu beca
+                    {t('about.primer_paso')}
                   </span>
                 </span>
               </a>
@@ -171,7 +170,7 @@ export function AboutSection() {
                   />
                 </div>
                 <p className="text-xs leading-snug text-muted-foreground sm:text-[0.8125rem]">
-                  +100 estudiantes ya consiguieron su beca con nuestro acompañamiento.
+                  {t('about.estudiantes_ayudados')}
                 </p>
               </div>
               </div>
@@ -209,7 +208,7 @@ export function AboutSection() {
               <div className="aspect-[3/4] w-full lg:absolute lg:inset-0 lg:aspect-auto lg:h-full lg:min-h-0">
                 <img
                   src={mariluGraduation}
-                  alt="Marilu Núñez en ceremonia de graduación"
+                  alt={t('about.alt_fundadora')}
                   className="h-full w-full object-cover object-[center_22%]"
                 />
               </div>
@@ -218,7 +217,7 @@ export function AboutSection() {
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#2059BA]" aria-hidden />
                   <p className="text-xs font-medium leading-snug text-foreground sm:text-[0.8125rem]">
                     University of Edinburgh
-                    <span className="block text-muted-foreground">Experiencia real internacional</span>
+                    <span className="block text-muted-foreground">{t('about.experiencia_real')}</span>
                   </p>
                 </div>
               </div>

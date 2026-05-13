@@ -1,6 +1,7 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
+import "./i18n";
 import "./index.css";
 
 class RootErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {

@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MessageCircle, CheckCircle2 } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 import juntosImage from "@/assets/juntos.jpg";
 
 const WHATSAPP_NUMBER = "51979719879";
@@ -61,6 +62,7 @@ const socials = [
 ];
 
 export function ContactSection() {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -72,7 +74,7 @@ export function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = encodeURIComponent(
-      `Hola Marilu, soy ${form.name}.\n\n${form.message}\n\nMi correo: ${form.email}`
+      t('contact.mensaje_whatsapp', { name: form.name, message: form.message, email: form.email })
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
   };
@@ -88,7 +90,7 @@ export function ContactSection() {
         {/* Imagen de fondo */}
         <img
           src={juntosImage}
-          alt="Equipo Mar de Becas"
+          alt={t("contact.alt_equipo")}
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Overlay degradado Hero */}
@@ -125,7 +127,7 @@ export function ContactSection() {
                 border: "1px solid rgba(255,196,95,0.3)",
               }}
             >
-              Contáctanos
+              {t('contact.badge')}
             </span>
 
             <motion.h2
@@ -134,9 +136,7 @@ export function ContactSection() {
               transition={{ duration: 0.65 }}
               className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4"
             >
-              ¿Lista para ganar
-              <br />
-              <span style={{ color: "#FFC45F" }}>tu beca?</span>
+              {t('contact.titulo')}
             </motion.h2>
 
             <motion.p
@@ -145,7 +145,7 @@ export function ContactSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-sans text-white/70 text-base leading-relaxed"
             >
-              Escríbenos y te respondemos en menos de 24 horas. Todo es online, desde cualquier lugar de Latam.
+              {t('contact.subtitulo')}
             </motion.p>
           </div>
         </div>
@@ -166,7 +166,7 @@ export function ContactSection() {
               className="pt-8 md:pt-10"
             >
               <ul className="flex flex-col gap-4 mb-10">
-                {bullets.map((b, i) => (
+                {(t("contact.bullets", { returnObjects: true }) as string[]).map((b, i) => (
                   <motion.li
                     key={i}
                     initial={{ opacity: 0, x: -14 }}
@@ -182,7 +182,7 @@ export function ContactSection() {
 
               <div>
                 <p className="font-sans text-xs uppercase tracking-widest text-gray-400 mb-3">
-                  Síguenos en redes
+                  {t('contact.siguenos')}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {socials.map((s) => (
@@ -223,16 +223,16 @@ export function ContactSection() {
                 }}
               >
                 <h3 className="font-display text-xl font-black text-gray-900 mb-1">
-                  Envíanos un mensaje
+                  {t('contact.envia_mensaje')}
                 </h3>
                 <p className="font-sans text-sm text-gray-400 mb-6">
-                  Te responderemos por WhatsApp en menos de 24h
+                  {t('contact.responderemos')}
                 </p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                   <div>
                     <label className="font-sans text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 block">
-                      Tu nombre
+                      {t('contact.tu_nombre')}
                     </label>
                     <input
                       type="text"
@@ -240,7 +240,7 @@ export function ContactSection() {
                       value={form.name}
                       onChange={handleChange}
                       required
-                      placeholder="¿Cómo te llamas?"
+                      placeholder={t('contact.nombre_placeholder')}
                       className="w-full rounded-xl px-4 py-3 font-sans text-sm text-gray-900 outline-none transition-all"
                       style={{ background: "#f8f7ff", border: "1.5px solid rgba(32,89,186,0.12)" }}
                       onFocus={e => (e.target.style.border = "1.5px solid #2059BA")}
@@ -250,7 +250,7 @@ export function ContactSection() {
 
                   <div>
                     <label className="font-sans text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 block">
-                      Tu correo
+                      {t('contact.tu_correo')}
                     </label>
                     <input
                       type="email"
@@ -258,7 +258,7 @@ export function ContactSection() {
                       value={form.email}
                       onChange={handleChange}
                       required
-                      placeholder="correo@ejemplo.com"
+                      placeholder={t('contact.correo_placeholder')}
                       className="w-full rounded-xl px-4 py-3 font-sans text-sm text-gray-900 outline-none transition-all"
                       style={{ background: "#f8f7ff", border: "1.5px solid rgba(32,89,186,0.12)" }}
                       onFocus={e => (e.target.style.border = "1.5px solid #2059BA")}
@@ -268,7 +268,7 @@ export function ContactSection() {
 
                   <div>
                     <label className="font-sans text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 block">
-                      Tu mensaje
+                      {t('contact.mensaje')}
                     </label>
                     <textarea
                       name="message"
@@ -276,7 +276,7 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       rows={4}
-                      placeholder="Cuéntanos sobre tu perfil y qué beca te interesa..."
+                      placeholder={t('contact.mensaje_placeholder')}
                       className="w-full rounded-xl px-4 py-3 font-sans text-sm text-gray-900 outline-none transition-all resize-none"
                       style={{ background: "#f8f7ff", border: "1.5px solid rgba(32,89,186,0.12)" }}
                       onFocus={e => (e.target.style.border = "1.5px solid #2059BA")}
@@ -292,11 +292,11 @@ export function ContactSection() {
                     style={{ background: "linear-gradient(135deg,#2059BA,#A07DE2)" }}
                   >
                     <MessageCircle className="w-5 h-5" />
-                    Enviar por WhatsApp
+                    {t('contact.enviar')}
                   </motion.button>
 
                   <p className="font-sans text-center text-xs text-gray-400">
-                    Al hacer clic se abrirá WhatsApp con tu mensaje listo
+                    {t('contact.whatsapp_ready')}
                   </p>
                 </form>
               </div>

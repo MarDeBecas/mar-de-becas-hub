@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, Search, FileText, BookOpen, Users } from "lucide-react";
 
 import imgMexicano   from "@/assets/services/becario-mexicano.png";
@@ -72,8 +73,15 @@ const services = [
 
 
 export function ServicesSection() {
+  const { t } = useTranslation();
   const [active, setActive] = useState(0);
-  const s = services[active];
+  const translatedServices = t("services.items", { returnObjects: true }) as Array<{
+    title: string;
+    subtitle: string;
+    description: string;
+    imageAlt: string;
+  }>;
+  const s = { ...services[active], ...translatedServices[active] };
 
   return (
     <section
@@ -107,7 +115,7 @@ export function ServicesSection() {
                 className="inline-flex items-center px-6 py-2 rounded-full font-black text-sm uppercase tracking-widest"
                 style={{ background: "rgba(160,125,226,0.06)", border: "1.5px solid rgba(160,125,226,0.35)", color: "#A07DE2" }}
               >
-                Servicios
+                {t("services.badge")}
               </span>
             </motion.div>
 
@@ -118,7 +126,7 @@ export function ServicesSection() {
               transition={{ duration: 0.45, delay: 0.06 }}
               className="font-display text-4xl md:text-5xl font-black text-gray-900"
             >
-              Así podemos ayudarte
+              {t("services.title")}
             </motion.p>
 
             <motion.p
@@ -128,7 +136,7 @@ export function ServicesSection() {
               transition={{ duration: 0.55, delay: 0.08 }}
               className="font-sans text-sm md:text-base text-gray-400 leading-relaxed"
             >
-              Transformamos tu perfil en una historia ganadora y te llevamos de la idea a la beca
+              {t("services.subtitle")}
             </motion.p>
 
             {/* Service tabs */}
@@ -164,7 +172,7 @@ export function ServicesSection() {
                       className="font-display font-bold text-sm md:text-[0.95rem] transition-colors duration-200 flex-1"
                       style={{ color: isActive ? "#0c1f36" : "#9ca3af" }}
                     >
-                      {item.title}
+                      {translatedServices[i].title}
                     </span>
 
                     {item.badge && (
@@ -209,7 +217,7 @@ export function ServicesSection() {
                 borderRadius: "16px",
               }}
             >
-              Agenda tu sesión
+              {t("services.schedule")}
               <ArrowRight className="w-4 h-4" />
             </motion.a>
           </div>
@@ -301,7 +309,7 @@ export function ServicesSection() {
                     className="flex-1 flex items-center justify-center gap-2 font-display font-black text-sm text-white py-3 px-5 shadow-lg transition-opacity hover:opacity-90"
                     style={{ background: s.gradient, borderRadius: "14px" }}
                   >
-                    Empezar ahora
+                    {t("services.start")}
                     <ArrowRight className="w-4 h-4" />
                   </a>
                   <button
@@ -313,7 +321,7 @@ export function ServicesSection() {
                       border: `1.5px solid ${s.borderColor}`,
                       boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
                     }}
-                    aria-label="Siguiente servicio"
+                    aria-label={t("services.next")}
                   >
                     →
                   </button>

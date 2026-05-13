@@ -1,4 +1,5 @@
 import { ArrowRight, ChevronRight, GraduationCap, Globe, Megaphone, Sparkles, Users } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 import newsAniversario from "@/assets/news-aniversario.jpg";
 import newsPronabec from "@/assets/news-pronabec.jpg";
 import newsAiesec from "@/assets/news-aiesec.png";
@@ -113,8 +114,38 @@ const secondaryNews: NewsItem[] = [
   },
 ];
 
-function FeaturedCard() {
-  const t = typeStyles[featuredNews.type];
+const newsCopy = {
+  en: {
+    featured: {
+      title: "FoundHer in Glasgow: a transformative international experience",
+      lead: "From Peru to Scotland: a real story of leadership and international scholarships.",
+    },
+    secondary: [
+      { title: "FoundHer Scholarships: shaping global leaders", preview: "A program that empowers women to reach international opportunities." },
+      { title: "AIESEC Experience Week", preview: "A space to share, learn, and connect with leaders transforming the world." },
+      { title: "Impact 2025", preview: "Discover the impact we are creating in the scholarship community." },
+      { title: "We are PRONABEC Ambassadors", preview: "Voices that guide the path toward international scholarships." },
+      { title: "Mar de Becas was born one year ago", preview: "A platform dedicated to making international academic dreams come true." },
+      { title: "AIESEC Experience Week", preview: "A space to share, learn, and connect with leaders transforming the world." }
+    ],
+  },
+  es: {
+    featured: {
+      title: "FoundHer en Glasgow: una experiencia internacional transformadora",
+      lead: "Desde Peru hasta Escocia: una historia real de liderazgo y becas internacionales.",
+    },
+    secondary: [
+      { title: "FoundHer Scholarships: formando lideres globales", preview: "Un programa que impulsa a mujeres a alcanzar oportunidades internacionales." },
+      { title: "Semana de las Experiencias AIESEC", preview: "Un espacio para compartir, aprender y conectar con lideres que estan transformando el mundo." },
+      { title: "Impacto 2025", preview: "Conoce el impacto que estamos generando en la comunidad de becarios." },
+      { title: "Somos Embajadores PRONABEC", preview: "Voces que guian el camino hacia las becas internacionales." },
+      { title: "Hace un ano nacio Mar de Becas", preview: "Una plataforma dedicada a hacer realidad los suenos academicos internacionales." },
+      { title: "Semana de las Experiencias AIESEC", preview: "Un espacio para compartir, aprender y conectar con lideres que estan transformando el mundo." }
+    ],
+  },
+};
+
+function FeaturedCard({ item, typeLabel, featuredLabel, readLabel }: { item: NewsItem & { lead: string }; typeLabel: string; featuredLabel: string; readLabel: string }) {
   return (
     <a
       href={featuredNews.url}
@@ -123,8 +154,8 @@ function FeaturedCard() {
       className="group relative flex h-full min-h-[17.5rem] flex-col justify-end overflow-hidden rounded-3xl ring-1 ring-black/[0.06] sm:min-h-[22rem] lg:min-h-[26rem]"
     >
       <img
-        src={featuredNews.image}
-        alt={featuredNews.title}
+        src={item.image}
+        alt={item.title}
         className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
       />
       <div
@@ -133,21 +164,21 @@ function FeaturedCard() {
       />
       <div className="absolute left-4 top-4 flex flex-wrap gap-2 sm:left-5 sm:top-5">
         <span className="rounded-full border border-white/25 bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
-          Destacado
+          {featuredLabel}
         </span>
         <span className="rounded-full border border-white/35 bg-teal-600/95 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-sm backdrop-blur-sm">
-          {t.label}
+          {typeLabel}
         </span>
       </div>
       <div className="relative z-10 p-5 sm:p-7 lg:p-8">
         <h3 className="max-w-xl text-balance text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
-          {featuredNews.title}
+          {item.title}
         </h3>
         <p className="mt-3 max-w-lg text-pretty text-sm leading-relaxed text-white/90 sm:text-base">
-          {featuredNews.lead}
+          {item.lead}
         </p>
         <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#2059BA] shadow-lg transition group-hover:bg-[#F8F4EE]">
-          Ver historia completa
+          {readLabel}
           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
         </span>
       </div>
@@ -155,8 +186,8 @@ function FeaturedCard() {
   );
 }
 
-function SecondaryCard({ item }: { item: NewsItem }) {
-  const t = typeStyles[item.type];
+function SecondaryCard({ item, typeLabel }: { item: NewsItem; typeLabel: string }) {
+  const style = typeStyles[item.type];
   return (
     <a
       href={item.url}
@@ -169,9 +200,9 @@ function SecondaryCard({ item }: { item: NewsItem }) {
       </div>
       <div className="flex min-w-0 flex-1 flex-col justify-center py-0.5">
         <span
-          className={`mb-1.5 w-fit rounded-full border px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide ${t.className}`}
+          className={`mb-1.5 w-fit rounded-full border px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide ${style.className}`}
         >
-          {t.label}
+          {typeLabel}
         </span>
         <h4 className="line-clamp-2 text-sm font-bold leading-snug text-foreground transition group-hover:text-[#2059BA] sm:text-base">
           {item.title}
@@ -186,22 +217,23 @@ function SecondaryCard({ item }: { item: NewsItem }) {
 }
 
 export function NewsSection() {
+  const { t, i18n } = useTranslation();
+  const copy = i18n.language.startsWith("en") ? newsCopy.en : newsCopy.es;
+  const localizedFeatured = { ...featuredNews, ...copy.featured };
+  const localizedSecondary = secondaryNews.map((item, index) => ({ ...item, ...copy.secondary[index] }));
   return (
     <section id="noticias" className="section-padding bg-muted/40">
       <div className="container-wide">
         <div className="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#A07DE2]/20 bg-[#A07DE2]/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#5b3d8a] sm:text-sm">
             <Megaphone className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden />
-            Noticias
+            {t('news.badge')}
           </span>
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-[2.5rem] md:leading-[1.15]">
-            Historias reales que{" "}
-            <span className="text-[#2059BA]">
-              te acercan a tu beca <span aria-hidden>🌍</span>
-            </span>
+            {t('news.titulo')}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Inspírate con experiencias, logros y oportunidades de nuestra comunidad.
+            {t('news.subtitulo')}
           </p>
         </div>
 
@@ -212,7 +244,7 @@ export function NewsSection() {
                 <Users className="h-5 w-5" strokeWidth={2} aria-hidden />
               </div>
               <p className="text-sm leading-snug text-muted-foreground sm:text-[0.9375rem]">
-                <strong className="font-bold text-[#2059BA]">100+</strong> estudiantes lograron becas internacionales
+                <strong className="font-bold text-[#2059BA]">100+</strong> {t('news.estudiantes_logrados')}
               </p>
             </div>
             <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:text-left">
@@ -220,7 +252,7 @@ export function NewsSection() {
                 <GraduationCap className="h-5 w-5" strokeWidth={2} aria-hidden />
               </div>
               <p className="text-sm leading-snug text-muted-foreground sm:text-[0.9375rem]">
-                <strong className="font-bold text-[#2059BA]">US$ 519,364+</strong> en financiamiento obtenido
+                <strong className="font-bold text-[#2059BA]">US$ 519,364+</strong> {t('news.financiamiento_obtenido')}
               </p>
             </div>
             <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:text-left">
@@ -228,7 +260,7 @@ export function NewsSection() {
                 <Globe className="h-5 w-5" strokeWidth={2} aria-hidden />
               </div>
               <p className="text-sm leading-snug text-muted-foreground sm:text-[0.9375rem]">
-                <strong className="font-bold text-[#2059BA]">más de 4</strong> países alcanzados por nuestra comunidad
+                <strong className="font-bold text-[#2059BA]">{t('news.mas_de')}</strong> {t('news.paises_alcanzados')}
               </p>
             </div>
           </div>
@@ -236,11 +268,16 @@ export function NewsSection() {
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.75fr)] lg:items-stretch lg:gap-8">
           <div className="min-h-0 lg:flex lg:flex-col">
-            <FeaturedCard />
+            <FeaturedCard
+              item={localizedFeatured}
+              typeLabel={t(`news.types.${localizedFeatured.type}`)}
+              featuredLabel={t("news.featured")}
+              readLabel={t("news.read")}
+            />
           </div>
           <div className="flex min-h-0 flex-col gap-4">
-            {secondaryNews.map((item) => (
-              <SecondaryCard key={item.id} item={item} />
+            {localizedSecondary.map((item, index) => (
+              <SecondaryCard key={`${item.id}-${index}`} item={item} typeLabel={t(`news.types.${item.type}`)} />
             ))}
           </div>
         </div>
@@ -248,17 +285,17 @@ export function NewsSection() {
         <div className="mt-12 rounded-3xl border border-border/60 bg-card px-4 py-6 shadow-sm sm:px-8 sm:py-7">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#2059BA]/15 bg-[#2059BA]/[0.08] px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#2059BA]">
-              🎬 Revive nuestros eventos con becarios
+              🎬 {t('news.videos_titulo')}
             </span>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Pronto compartiremos los mejores momentos en video de nuestras mentorías, talleres y encuentros de la comunidad.
+              {t('news.videos_subtitulo')}
             </p>
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {[
-              "Taller de becas",
-              "Mentorías en vivo",
-              "Encuentros de comunidad",
+              t('news.taller_becas'),
+              t('news.mentorias_vivo'),
+              t('news.encuentros_comunidad'),
             ].map((title, index) => (
               <div key={index} className="overflow-hidden rounded-3xl border border-border/70 bg-[#0f1723] p-5 text-white shadow-sm transition hover:-translate-y-1">
                 <div className="mb-4 flex h-40 items-center justify-center rounded-3xl bg-[#111827]/80">
@@ -270,7 +307,7 @@ export function NewsSection() {
                   </div>
                 </div>
                 <h3 className="text-sm font-semibold tracking-tight text-white">{title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-white/70">Próximamente, aquí podrás revivir nuestros eventos y charlas con becarios.</p>
+                <p className="mt-2 text-xs leading-relaxed text-white/70">{t('news.proximamente')}</p>
               </div>
             ))}
           </div>
@@ -280,8 +317,8 @@ export function NewsSection() {
           <p className="flex max-w-xl items-start gap-3 text-left text-foreground">
             <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-[#A07DE2]" aria-hidden />
             <span>
-              <strong className="font-semibold">¿Te imaginas ser el próximo?</strong>{" "}
-              <span className="text-muted-foreground">Tú también puedes lograrlo. Empieza hoy tu camino.</span>
+              <strong className="font-semibold">{t("news.imagineStrong")}</strong>{" "}
+              <span className="text-muted-foreground">{t("news.imagineText")}</span>
             </span>
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:shrink-0 sm:items-center">
@@ -291,7 +328,7 @@ export function NewsSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2059BA] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#1a4a9e]"
             >
-              Ver todas las historias
+              {t("news.viewAll")}
               <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
             <a
@@ -300,7 +337,7 @@ export function NewsSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full border-2 border-[#2059BA]/30 bg-background px-6 py-3 text-sm font-semibold text-[#2059BA] transition hover:border-[#2059BA] hover:bg-[#2059BA]/5"
             >
-              Quiero lograr esto también
+              {t("news.want")}
             </a>
           </div>
         </div>
