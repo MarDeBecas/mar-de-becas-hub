@@ -1,115 +1,230 @@
-import { Target, Eye, Heart, GraduationCap, Users, UserCheck } from "lucide-react";
+import { Calendar, Globe, GraduationCap, MapPin, School, Star, Trophy, Users } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 import mariluGraduation from "@/assets/marilu-graduation.jpg";
+import emmyImage from "@/assets/testimonial-emmy.jpg";
+import nayvImage from "@/assets/testimonial-nayvi.jpg";
+import royImage from "@/assets/testimonial-roy.jpg";
 import { useCountUp } from "@/hooks/useCountUp";
 
-function ImpactCounter({ end, label, suffix = "+", prefix = "", formatNumber = false, icon: Icon, isStatic = false }: { end: number; label: string; suffix?: string; prefix?: string; formatNumber?: boolean; icon?: React.ComponentType<{ className?: string }>; isStatic?: boolean }) {
-  const { count, ref } = useCountUp({ end, duration: 2000 });
-  
-  const displayValue = formatNumber ? (isStatic ? end.toLocaleString('en-US') : count.toLocaleString('en-US')) : (isStatic ? end : count);
-  
+const WHATSAPP_URL = "https://wa.link/mhr4d9";
+
+function StatCard({
+  icon: Icon,
+  value,
+  label,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  value: React.ReactNode;
+  label: string;
+}) {
   return (
-    <div 
-      ref={!isStatic ? ref : undefined} 
-      className="text-center p-4 bg-primary/5 rounded-xl animate-fade-in"
-    >
-      {Icon && (
-        <div className="flex justify-center mb-2">
-          <Icon className="w-6 h-6 text-primary" />
-        </div>
-      )}
-      <p className="text-2xl font-bold text-primary">
-        {prefix}{displayValue}{suffix}
+    <div className="flex flex-col items-center rounded-xl border border-border/50 bg-card px-2.5 py-3.5 text-center shadow-sm sm:px-3 sm:py-4">
+      <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-[#2059BA]/10">
+        <Icon className="h-4 w-4 text-[#2059BA]" strokeWidth={2} />
+      </div>
+      <p className="break-words text-base font-bold tabular-nums leading-tight tracking-tight text-[#2059BA] sm:text-lg">
+        {value}
       </p>
-      <p className="text-sm text-muted-foreground">{label}</p>
+      <p className="mt-1.5 max-w-[10.5rem] text-[0.6875rem] leading-snug text-muted-foreground sm:max-w-[11rem] sm:text-xs">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+function CountStat({
+  end,
+  suffix = "+",
+  prefix = "",
+  label,
+  icon: Icon,
+}: {
+  end: number;
+  suffix?: string;
+  prefix?: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+}) {
+  const { count, ref } = useCountUp({ end, duration: 2000 });
+  return (
+    <div ref={ref} className="h-full">
+      <StatCard
+        icon={Icon}
+        label={label}
+        value={
+          <>
+            {prefix}
+            {count.toLocaleString("en-US")}
+            {suffix}
+          </>
+        }
+      />
     </div>
   );
 }
 
 export function AboutSection() {
-  return <section id="nosotros" className="section-padding bg-muted">
+  const { t } = useTranslation();
+  return (
+    <section id="nosotros" className="bg-background py-12 md:py-16 lg:py-20">
       <div className="container-wide">
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
-            Sobre Nosotros
+        {/* — Encabezado — */}
+        <div className="mx-auto mb-8 max-w-3xl text-center lg:mb-10">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#2059BA]/15 bg-[#2059BA]/[0.06] px-4 py-2 text-sm font-semibold text-[#2059BA]">
+            <GraduationCap className="h-4 w-4 shrink-0" aria-hidden />
+            {t('about.badge')}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Conoce a <span className="text-gradient">Mar de Becas</span>
+          <h2 className="text-balance font-sans text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-[2.65rem] md:leading-[1.12]">
+            {t('about.titulo')}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Somos la plataforma que ayuda a jóvenes peruanos y latinoamericanos a ganar becas internacionales 
-            y así puedan iniciar sus estudios superiores en las mejores universidades del mundo.
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            {t('about.subtitulo')}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Marilú Profile */}
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden card-elevated">
-              <img alt="Marilú Nuñez - Asesora de Becas" className="w-full h-full object-cover" src={mariluGraduation} />
+        {/* —
+          Móvil: métricas → texto → foto (aspecto fijo).
+          lg+: una fila; la foto estira a la misma altura que métricas+texto y se adapta con object-cover.
+        — */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,0.36fr)_1fr] lg:items-stretch lg:gap-x-10">
+          {/* Columna derecha en lg: métricas + texto */}
+          <div className="flex min-w-0 flex-col gap-4 font-sans lg:order-2">
+            <div className="grid w-full grid-cols-3 gap-2 sm:gap-2.5">
+              <CountStat end={100} label={t('about.estudiantes_asesorados')} icon={Users} />
+              <StatCard icon={GraduationCap} label={t('about.becas_obtenidas')} value={<>US$&nbsp;519,364+</>} />
+              <CountStat end={2500} label={t('about.miembros_comunidad')} icon={Users} />
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-xl">
-              <p className="text-3xl font-bold">8+</p>
-              <p className="text-sm opacity-90">Años de experiencia</p>
-            </div>
-          </div>
 
-          <div className="space-y-6">
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-              Marilú Nuñez
-            </h3>
-            <p className="text-primary font-medium text-lg">
-              Fundadora & Asesora Principal
-            </p>
-            <p className="text-muted-foreground leading-relaxed">Marilu Nuñez es fundadora de Mar de Becas y asesora especializada en becas internacionales de posgrado. Es Ingeniera Industrial y cuenta con un <strong className="text-foreground font-semibold">MSc en Emprendimiento e Innovación en The University of Edinburgh (Reino Unido)</strong>. Con más de ocho años de experiencia, ha acompañado a jóvenes peruanos y latinoamericanos a ingresar a universidades de prestigio en el extranjero, logrando becas cubiertas al 100% en países como <strong className="text-foreground font-semibold">Australia, Reino Unido e Irlanda.</strong></p>
-            <p className="text-muted-foreground leading-relaxed">Fue ganadora de la <strong className="text-foreground font-semibold">Beca Generación del Bicentenario 2024</strong> para cursar estudios de posgrado en el Reino Unido y finalista de la <strong className="text-foreground font-semibold">Beca Chevening 2024</strong>. Además, ha sido seleccionada como becaria en foros internacionales de liderazgo juvenil en Italia y Países Bajos, y reconocida como <strong className="text-foreground font-semibold">joven líder por la Cámara de Comercio de Lima</strong>, así como <strong className="text-foreground font-semibold">embajadora oficial de PRONABEC</strong>.</p>
-            
-            <h4 className="text-xl font-bold text-foreground pt-4">Nuestro impacto</h4>
-            <div className="grid grid-cols-3 gap-4">
-              <ImpactCounter end={80} label="Asesorados" icon={UserCheck} />
-              <ImpactCounter end={519364} label="en becas completas" prefix="US$ " suffix="" formatNumber={true} icon={GraduationCap} isStatic={true} />
-              <ImpactCounter end={1000} label="Miembros en nuestra comunidad" icon={Users} />
-            </div>
-            <div className="flex gap-4 pt-4">
-              <a href="https://www.linkedin.com/in/marilu-nu%C3%B1ez-sanchez/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <div className="flex min-w-0 flex-col gap-3.5 lg:gap-4">
+              <div className="space-y-2">
+              <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-[1.65rem]">{t('about.fundadora')}</h3>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#2059BA]/15 bg-[#2059BA]/[0.06] px-2.5 py-1 text-xs font-semibold text-[#2059BA] sm:text-[0.8125rem]">
+                <Star className="h-3 w-3 fill-[#2059BA]/25 text-[#2059BA]" aria-hidden />
+                {t('about.cargo')}
+              </span>
+              </div>
+
+              <p className="max-w-2xl text-sm leading-snug text-muted-foreground sm:text-[0.9375rem] sm:leading-snug">
+              {t('about.descripcion')}
+              </p>
+
+              <ul className="max-w-2xl space-y-2.5 text-sm leading-snug text-foreground sm:text-[0.9375rem]">
+              <li className="flex gap-2.5">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA]">
+                  <Globe className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                </span>
+                <span className="min-w-0">{t('about.experiencia')}</span>
+              </li>
+              <li className="flex gap-2.5">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA]">
+                  <School className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                </span>
+                <span className="min-w-0">{t('about.ganadora')}</span>
+              </li>
+              <li className="flex gap-2.5">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA]">
+                  <Trophy className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                </span>
+                <span className="min-w-0">
+                  {t('about.embajadora')}
+                </span>
+              </li>
+              </ul>
+
+              <div className="flex flex-col gap-3.5 pt-1 sm:flex-row sm:items-center sm:gap-5">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex max-w-md items-center gap-3 rounded-xl bg-[#2059BA] px-4 py-3.5 text-left text-white shadow-[0_6px_22px_rgba(32,89,186,0.32)] transition hover:bg-[#1a4a9e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2059BA] focus-visible:ring-offset-2"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/15">
+                  <Calendar className="h-4 w-4" strokeWidth={2} aria-hidden />
+                </span>
+                <span className="space-y-0.5">
+                  <span className="block text-xs font-bold uppercase tracking-wide sm:text-[0.8125rem]">
+                    {t('about.agenda')}
+                  </span>
+                  <span className="block text-xs font-medium text-white/90 sm:text-[0.8125rem]">
+                    {t('about.primer_paso')}
+                  </span>
+                </span>
+              </a>
+
+              <div className="flex min-w-0 items-center gap-2.5 sm:max-w-[min(100%,18rem)]">
+                <div className="flex shrink-0 -space-x-2">
+                  <img
+                    src={royImage}
+                    alt=""
+                    className="h-9 w-9 rounded-full border-2 border-background object-cover ring-1 ring-border"
+                  />
+                  <img
+                    src={nayvImage}
+                    alt=""
+                    className="h-9 w-9 rounded-full border-2 border-background object-cover ring-1 ring-border"
+                  />
+                  <img
+                    src={emmyImage}
+                    alt=""
+                    className="h-9 w-9 rounded-full border-2 border-background object-cover ring-1 ring-border"
+                  />
+                </div>
+                <p className="text-xs leading-snug text-muted-foreground sm:text-[0.8125rem]">
+                  {t('about.estudiantes_ayudados')}
+                </p>
+              </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2.5 pt-0.5">
+              <a
+                href="https://www.linkedin.com/in/marilu-nu%C3%B1ez-sanchez/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA] transition hover:bg-[#2059BA] hover:text-white"
+                aria-label="LinkedIn de Marilu Núñez"
+              >
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </a>
-              <a href="https://www.instagram.com/mardebecas/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <a
+                href="https://www.instagram.com/manunez.s/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#2059BA]/10 text-[#2059BA] transition hover:bg-[#2059BA] hover:text-white"
+                aria-label="Instagram de Marilu Núñez"
+              >
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Foto: móvil aspecto 3/4; en lg estira a la altura de la columna de métricas + texto */}
+          <div className="mx-auto w-full max-w-xs sm:max-w-sm lg:order-1 lg:mx-0 lg:h-full lg:min-h-0 lg:max-w-none lg:self-stretch">
+            <div className="relative h-full min-h-[17.5rem] w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(32,89,186,0.12)] ring-1 ring-black/[0.04] lg:min-h-0">
+              <div className="aspect-[3/4] w-full lg:absolute lg:inset-0 lg:aspect-auto lg:h-full lg:min-h-0">
+                <img
+                  src={mariluGraduation}
+                  alt={t('about.alt_fundadora')}
+                  className="h-full w-full object-cover object-[center_22%]"
+                />
+              </div>
+              <div className="absolute bottom-3 right-3 left-3 sm:left-auto sm:right-3 sm:max-w-[min(100%,16rem)]">
+                <div className="flex items-start gap-2 rounded-xl border border-white/70 bg-white/95 px-3 py-2.5 text-left shadow-lg backdrop-blur-sm sm:px-3.5 sm:py-3">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#2059BA]" aria-hidden />
+                  <p className="text-xs font-medium leading-snug text-foreground sm:text-[0.8125rem]">
+                    University of Edinburgh
+                    <span className="block text-muted-foreground">{t('about.experiencia_real')}</span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Mission, Vision, Values */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {[{
-          icon: Target,
-          title: "Nuestra Misión",
-          description: "Democratizar el acceso a la educación internacional, brindando asesoría personalizada que transforme el potencial de cada postulante en oportunidades reales de becas."
-        }, {
-          icon: Eye,
-          title: "Nuestra Visión",
-          description: "Ser el referente latinoamericano en asesoría de becas, reconocidos por nuestro compromiso con el éxito de cada estudiante y nuestra contribución al desarrollo profesional de la región."
-        }, {
-          icon: Heart,
-          title: "Nuestros Valores",
-          description: "Excelencia, compromiso, cercanía y transparencia guían cada paso de nuestro trabajo. Creemos en el poder transformador de la educación y en el potencial de cada persona."
-        }].map((item, index) => <div key={index} className="bg-card p-8 rounded-2xl card-elevated text-center">
-              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <item.icon className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">
-                {item.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {item.description}
-              </p>
-            </div>)}
-        </div>
       </div>
-    </section>;
+    </section>
+  );
 }

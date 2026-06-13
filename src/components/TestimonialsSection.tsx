@@ -1,129 +1,222 @@
-import { Star, Quote } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { ArrowRight } from "lucide-react";
 import emmyImage from "@/assets/testimonial-emmy.jpg";
 import nayvImage from "@/assets/testimonial-nayvi.jpg";
 import royImage from "@/assets/testimonial-roy.jpg";
 import wendyImage from "@/assets/testimonial-wendy.jpg";
 
-const testimonials = [{
-  id: 1,
-  name: "Emmy Taboada",
-  scholarship: "Beca Generación del Bicentenario",
-  country: "Reino Unido",
-  university: "University of Edinburgh, Reino Unido",
-  quote: "La ayuda de Marilú en este proceso fue fundamental. Recuerdo que desde la primera asesoría pude hacer mi timeline de los pasos y consideraciones importantes que debía tener. Eso me ayudó mucho a poder organizarme. Además, cada vez que surgían dudas en este proceso siempre recurría a ella para preguntar y ella siempre estaba dispuesta en ayudar. Agradezco mucho su constancia a todos los mensajes que le envié, porque en realidad fueron muchos",
-  image: emmyImage
-}, {
-  id: 2,
-  name: "Nayvi Pablo",
-  scholarship: "Ireland Fellowship",
-  country: "Irlanda",
-  university: "University of Galway, Irlanda",
-  quote: "Gracias a la mentoría de Marilu, fortalecí mis ensayos y me preparé con seguridad para la entrevista con la Embajada de Irlanda. Su guía fue fundamental para lograr una beca de Irish Aid y ser admitida en maestría en Género, Globalización Derechos en la Universidad de Galway. Más allá de lo académico, me ayudó a confiar en mi misma y siempre le estaré agradecida por su generosidad y compromiso.",
-  image: nayvImage
-}, {
-  id: 3,
-  name: "Roy Chirinos",
-  scholarship: "Beca Generación del Bicentenario",
-  country: "Reino Unido",
-  university: "University College London, Reino Unido",
-  quote: "Recomiendo al equipo de Mar de Becas, fundado por Marilú, a quienes buscan hacer una maestría en el extranjero. Su asesoría fue clave para entender el proceso, comparar opciones y acceder a financiamiento mediante becas. Gracias a su guía, postulé y gané la Beca Generación del Bicentenario (BGB). Destaco su experiencia, cercanía y disposición en cada etapa del camino.",
-  image: royImage
-}, {
-  id: 4,
-  name: "Wendy Dávila",
-  scholarship: "Beca Generación del Bicentenario 2025",
-  country: "Reino Unido",
-  university: "University of Southampton, Reino Unido",
-  quote: "Marilú, no tengo palabras para agradecer tu apoyo incondicional. Tu orientación experta con los documentos, sumado a tu motivación constante, fue fundamental para que pudiera culminar mi postulación y superar la subsanación. Tus consejos son un tesoro. Realmente espero que muchas más personas descubran el valor de tu experiencia para que puedan alcanzar sus objetivos académicos en el extranjero. Elegir la asesoría correcta, como tú, abre un mundo de posibilidades.",
-  image: wendyImage
-}];
+const testimonials = [
+  {
+    id: 1,
+    name: "Emmy Taboada",
+    result: "Aceptada en Reino Unido",
+    university: "University of Edinburgh · Beca Bicentenario",
+    quote: "Pasé de no saber por dónde empezar a tener un plan claro y lograr mi beca. La mentoría cambió completamente mi proceso.",
+    full: "La ayuda de Marilu en este proceso fue fundamental. Desde la primera asesoría pude hacer mi timeline de pasos importantes. Cada vez que surgían dudas siempre recurría a ella y siempre estaba dispuesta a ayudar. Agradezco mucho su constancia a todos los mensajes que le envié, porque en realidad fueron muchos.",
+    image: emmyImage,
+    color: "#2059BA",
+  },
+  {
+    id: 2,
+    name: "Nayvi Pablo",
+    result: "Aceptada en Irlanda",
+    university: "University of Galway · Ireland Fellowship",
+    quote: "Pasé de sentirme perdida a llegar segura a mi entrevista con la Embajada. Sin ese acompañamiento no lo hubiera logrado.",
+    full: "Gracias a la mentoría de Marilu, fortalecí mis ensayos y me preparé con seguridad para la entrevista con la Embajada de Irlanda. Su guía fue fundamental para lograr la beca. Más allá de lo académico, me ayudó a confiar en mí misma y siempre le estaré agradecida por su generosidad y compromiso.",
+    image: nayvImage,
+    color: "#A07DE2",
+  },
+  {
+    id: 3,
+    name: "Roy Chirinos",
+    result: "Aceptado en Reino Unido",
+    university: "University College London · Beca Bicentenario",
+    quote: "La asesoría me dio claridad en cada etapa. Entendí el proceso, comparé opciones y finalmente gané la beca.",
+    full: "Recomiendo al equipo de Mar de Becas a quienes buscan hacer una maestría en el extranjero. Su asesoría fue clave para entender el proceso, comparar opciones y acceder a financiamiento mediante becas. Destaco su experiencia, cercanía y disposición en cada etapa del camino.",
+    image: royImage,
+    color: "#2059BA",
+  },
+  {
+    id: 4,
+    name: "Wendy Dávila",
+    result: "Aceptada en Reino Unido",
+    university: "University of Southampton · Beca Bicentenario",
+    quote: "Tenía muchas dudas y miedos. La orientación fue clave para culminar mi postulación con confianza y éxito.",
+    full: "Marilu, no tengo palabras para agradecer tu apoyo incondicional. Tu orientación experta con los documentos, sumado a tu motivación constante, fue fundamental para culminar mi postulación. Tus consejos son un tesoro. Elegir la asesoría correcta, como tú, abre un mundo de posibilidades.",
+    image: wendyImage,
+    color: "#A07DE2",
+  },
+];
 
-function useScrollAnimation() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, isVisible };
-}
-
-function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
+function TestimonialCard({
+  t,
+  i,
+  isInView,
+}: {
+  t: typeof testimonials[0];
+  i: number;
+  isInView: boolean;
+}) {
   return (
-    <div className="bg-card rounded-2xl p-6 card-elevated relative flex-shrink-0 w-80 md:w-96">
-      <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10" />
-      
-      <div className="flex items-center gap-4 mb-4">
-        <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
-          <img 
-            src={testimonial.image} 
-            alt={testimonial.name}
-            className="w-full h-full object-cover"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+      className="bg-white rounded-2xl p-8 flex-shrink-0 transition-all duration-300 hover:-translate-y-1"
+      style={{
+        width: "min(88vw, 420px)",
+        minHeight: "380px",
+        scrollSnapAlign: "start",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+        border: `1.5px solid ${t.color}20`,
+      }}
+    >
+      {/* Resultado */}
+      <p
+        className="font-display text-xl font-black mb-4 leading-snug"
+        style={{ color: t.color }}
+      >
+        {t.result}
+      </p>
+
+      {/* Foto + nombre */}
+      <div className="flex items-center gap-3 mb-4">
+        <div
+          className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0"
+          style={{ border: `2px solid ${t.color}30` }}
+        >
+          <img
+            src={t.image}
+            alt={t.name}
+            className="w-full h-full object-cover object-center"
           />
         </div>
         <div>
-          <h4 className="font-bold text-foreground text-sm">
-            {testimonial.name}
-          </h4>
-          <p className="text-xs text-primary font-medium">
-            {testimonial.scholarship}
+          <p className="font-display font-bold text-gray-900 text-base leading-tight">
+            {t.name}
           </p>
-          <p className="text-xs text-muted-foreground">
-            {testimonial.university}
+          <p
+            className="font-sans text-xs leading-tight mt-0.5"
+            style={{ color: "#9ca3af" }}
+          >
+            {t.university}
           </p>
         </div>
       </div>
 
-      <p className="text-muted-foreground text-sm leading-relaxed mb-4 italic">
-        "{testimonial.quote}"
+      {/* Quote completo */}
+      <p className="font-sans text-gray-600 text-base leading-relaxed italic">
+        "{t.full}"
       </p>
 
-      <div className="flex items-center gap-1">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-3 h-3 fill-accent text-accent" />
-        ))}
-      </div>
-    </div>
+      {/* Barra color */}
+      <div
+        className="h-0.5 rounded-full mt-4"
+        style={{ background: `linear-gradient(90deg, ${t.color}, #A07DE2)` }}
+      />
+    </motion.div>
   );
 }
 
 export function TestimonialsSection() {
-  return (
-    <section id="testimonios" className="section-padding bg-background">
-      <div className="container-wide">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Testimonios
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Conoce a quienes confiaron en nosotros y hoy cumplen sus sueños 
-            académicos en las mejores universidades del mundo.
-          </p>
-        </div>
+  const { t } = useTranslation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const translatedTestimonials = t("testimonials.items", { returnObjects: true }) as Array<{
+    result: string;
+    university: string;
+    full: string;
+  }>;
+  const localizedTestimonials = testimonials.map((item, index) => ({
+    ...item,
+    ...translatedTestimonials[index],
+  }));
 
-        <div className="overflow-x-auto pb-4">
-          <div className="flex gap-6 min-w-max px-4">
-            {testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
+  return (
+    <section
+      ref={ref}
+      id="testimonios"
+      className="py-20 md:py-24 scroll-mt-20"
+      style={{ background: "#f8f7ff" }}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10 md:mb-12"
+        >
+          <span
+            className="inline-block mb-4 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-wider"
+            style={{
+              background: "rgba(32,89,186,0.08)",
+              color: "#2059BA",
+              border: "1px solid rgba(32,89,186,0.2)",
+            }}
+          >
+            {t("testimonials.badge")}
+          </span>
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3 leading-tight">
+            {t("testimonials.title_1")}
+            <br />
+            <span style={{ color: "#2059BA" }}>{t("testimonials.title_2")}</span>
+          </h2>
+          <p className="font-sans text-gray-500 text-base md:text-lg max-w-xl mx-auto">
+            {t("testimonials.subtitle")}
+          </p>
+        </motion.div>
+
+        {/* Scroll horizontal — mobile y desktop */}
+        <div className="relative">
+          {/* Fade derecho */}
+          <div
+            className="pointer-events-none absolute right-0 top-0 bottom-4 w-12 sm:w-16 z-10"
+            style={{ background: "linear-gradient(to left, #f8f7ff, transparent)" }}
+          />
+
+          <div
+            className="overflow-x-auto pb-4 -mx-4 sm:-mx-6 px-4 sm:px-6"
+            style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
+          >
+            <div className="flex gap-4 items-start" style={{ width: "max-content" }}>
+              {localizedTestimonials.map((t, i) => (
+                <TestimonialCard
+                  key={t.id}
+                  t={t}
+                  i={i}
+                  isInView={isInView}
+                />
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center mt-8 md:mt-10"
+        >
+          
+          <motion.a
+            href="https://becariodelmudno.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.04, boxShadow: "0 20px 50px rgba(32,89,186,0.35)" }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-3 font-display font-black text-base text-white px-8 py-4 shadow-xl"
+            style={{ background: "linear-gradient(135deg,#2059BA,#A07DE2)", borderRadius: "18px" }}
+          >
+            {t("testimonials.cta")}
+            <ArrowRight className="w-5 h-5" />
+          </motion.a>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -1,0 +1,207 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "nosotros": "Nosotros",
+    "servicios": "Servicios",
+    "curso": "Curso",
+    "testimonios": "Testimonios",
+    "noticias": "Noticias",
+    "contacto": "Contactanos"
+  },
+  "language": {
+    "label": "EN"
+  },
+  "hero": {
+    "rating": "4.9/5",
+    "becas_ganadas": "+500 Becas Ganadas",
+    "titulo": "Tu camino hacia tu primera beca internacional",
+    "subtitulo": "Asesoria experta y personalizada para ganar becas internacionales de excelencia.",
+    "agenda_asesoria": "Agenda una asesoria",
+    "casos_exito": "Casos de exito",
+    "explora_becas": "Explora las becas"
+  },
+  "about": {
+    "titulo": "Consigue una beca internacional con acompanamiento experto",
+    "subtitulo": "Te guiamos paso a paso para estudiar en las mejores universidades del mundo con financiamiento completo.",
+    "badge": "Sobre Mar de Becas",
+    "fundadora": "Marilu Nunez",
+    "cargo": "Fundadora & Asesora Principal",
+    "descripcion": "Ingeniera Industrial con MSc en Emprendimiento e Innovacion en University of Edinburgh. Fundo Mar de Becas para acompanar a estudiantes latinoamericanos a obtener becas completas en el Reino Unido y otros paises.",
+    "experiencia": "+8 anos de experiencia acompanando postulaciones a becas internacionales.",
+    "ganadora": "Ganadora de la Beca Generacion del Bicentenario 2024 para posgrado en el Reino Unido.",
+    "embajadora": "Seleccionada como joven lider y embajadora PRONABEC, compartiendo su experiencia con la comunidad.",
+    "estudiantes_asesorados": "Estudiantes asesorados con exito",
+    "becas_obtenidas": "en becas completas obtenidas",
+    "miembros_comunidad": "Miembros en nuestra comunidad",
+    "estudiantes_ayudados": "+100 estudiantes ya consiguieron su beca con nuestro acompanamiento.",
+    "agenda": "Agenda una asesoria",
+    "primer_paso": "Da el primer paso hacia tu beca",
+    "alt_fundadora": "Marilu Nunez en ceremonia de graduacion",
+    "experiencia_real": "Experiencia real internacional"
+  },
+  "services": {
+    "badge": "Servicios",
+    "title": "Asi podemos ayudarte",
+    "subtitle": "Transformamos tu perfil en una historia ganadora y te llevamos de la idea a la beca",
+    "schedule": "Agenda tu sesion",
+    "start": "Empezar ahora",
+    "next": "Siguiente servicio",
+    "items": [
+      {
+        "title": "Exploracion de perfil",
+        "subtitle": "Tu punto de partida",
+        "description": "Sesion 1:1 para mapear tu perfil academico y profesional, identificar tus fortalezas y encontrar la beca ideal para ti. Sin compromisos.",
+        "imageAlt": "Sesion de exploracion de perfil"
+      },
+      {
+        "title": "Preparacion de documentos",
+        "subtitle": "Documentos que impactan",
+        "description": "CV academico, cartas de motivacion y ensayos redactados bajo estandares internacionales que destacan tu perfil ante los comites de seleccion.",
+        "imageAlt": "Preparacion de documentos academicos"
+      },
+      {
+        "title": "Postulacion completa",
+        "subtitle": "Acompanamiento 360",
+        "description": "Revision y feedback personalizado en cada etapa, desde la seleccion de universidades hasta el envio final de tu candidatura.",
+        "imageAlt": "Proceso de postulacion a beca"
+      },
+      {
+        "title": "Preparacion de entrevistas",
+        "subtitle": "Comunica con confianza",
+        "description": "Mock interviews reales con tecnicas de comunicacion efectiva para que llegues seguro/a y preparado/a al dia mas importante de tu proceso.",
+        "imageAlt": "Preparacion para entrevista de beca"
+      }
+    ]
+  },
+  "course": {
+    "badge": "Programa Intensivo",
+    "title_1": "Consigue una beca",
+    "title_2": "internacional",
+    "title_3": "paso a paso",
+    "subtitle": "Te guiamos paso a paso con mentoria real para que logres una beca en el extranjero.",
+    "cta": "Ver programa completo",
+    "limited": "Cupos limitados · Proxima generacion inicia pronto",
+    "accepted": "+30 estudiantes ya aceptados en el extranjero",
+    "live": "Sesion en vivo",
+    "liveMentoring": "Sesiones en vivo con mentoria real",
+    "session": "Sesion 04: Perfil Competitivo",
+    "with": "Con Marilu Nunez · 36 participantes",
+    "waitlist": "Lista de espera",
+    "students": "Alumnos",
+    "countries": "Paises"
+  },
+  "testimonials": {
+    "badge": "Resultados reales",
+    "title_1": "Historias reales de estudiantes",
+    "title_2": "que ya lo lograron",
+    "subtitle": "Aceptados en universidades y becas internacionales.",
+    "cta": "Ver programa completo",
+    "items": [
+      {
+        "result": "Aceptada en Reino Unido",
+        "university": "University of Edinburgh · Beca Bicentenario",
+        "full": "La ayuda de Marilu en este proceso fue fundamental. Desde la primera asesoria pude hacer mi timeline de pasos importantes. Cada vez que surgian dudas siempre recurria a ella y siempre estaba dispuesta a ayudar. Agradezco mucho su constancia a todos los mensajes que le envie, porque en realidad fueron muchos."
+      },
+      {
+        "result": "Aceptada en Irlanda",
+        "university": "University of Galway · Ireland Fellowship",
+        "full": "Gracias a la mentoria de Marilu, fortaleci mis ensayos y me prepare con seguridad para la entrevista con la Embajada de Irlanda. Su guia fue fundamental para lograr la beca. Mas alla de lo academico, me ayudo a confiar en mi misma y siempre le estare agradecida por su generosidad y compromiso."
+      },
+      {
+        "result": "Aceptado en Reino Unido",
+        "university": "University College London · Beca Bicentenario",
+        "full": "Recomiendo al equipo de Mar de Becas a quienes buscan hacer una maestria en el extranjero. Su asesoria fue clave para entender el proceso, comparar opciones y acceder a financiamiento mediante becas. Destaco su experiencia, cercania y disposicion en cada etapa del camino."
+      },
+      {
+        "result": "Aceptada en Reino Unido",
+        "university": "University of Southampton · Beca Bicentenario",
+        "full": "Marilu, no tengo palabras para agradecer tu apoyo incondicional. Tu orientacion experta con los documentos, sumado a tu motivacion constante, fue fundamental para culminar mi postulacion. Tus consejos son un tesoro. Elegir la asesoria correcta, como tu, abre un mundo de posibilidades."
+      }
+    ]
+  },
+  "trust": {
+    "badge": "Alianzas",
+    "title": "Confian en nosotros"
+  },
+  "news": {
+    "badge": "Noticias",
+    "titulo": "Historias reales que te acercan a tu beca",
+    "subtitulo": "Inspirate con experiencias, logros y oportunidades de nuestra comunidad.",
+    "estudiantes_logrados": "estudiantes lograron becas internacionales",
+    "financiamiento_obtenido": "en financiamiento obtenido",
+    "paises_alcanzados": "paises alcanzados por nuestra comunidad",
+    "mas_de": "mas de 4",
+    "featured": "Destacado",
+    "read": "Ver historia completa",
+    "viewAll": "Ver todas las historias",
+    "want": "Quiero lograr esto tambien",
+    "imagineStrong": "Te imaginas ser el proximo?",
+    "imagineText": "Tu tambien puedes lograrlo. Empieza hoy tu camino.",
+    "types": {
+      "evento": "Evento",
+      "logro": "Logro",
+      "testimonio": "Testimonio",
+      "historia": "Historia"
+    },
+    "videos_titulo": "Revive nuestros eventos con becarios",
+    "videos_subtitulo": "Pronto compartiremos los mejores momentos en video de nuestras mentorias, talleres y encuentros de la comunidad.",
+    "taller_becas": "Taller de becas",
+    "mentorias_vivo": "Mentorias en vivo",
+    "encuentros_comunidad": "Encuentros de comunidad",
+    "proximamente": "Proximamente, aqui podras revivir nuestros eventos y charlas con becarios."
+  },
+  "contact": {
+    "titulo": "Lista para ganar tu beca?",
+    "subtitulo": "Escribenos y te respondemos en menos de 24 horas. Todo es online, desde cualquier lugar de Latam.",
+    "badge": "Contactanos",
+    "envia_mensaje": "Envianos un mensaje",
+    "responderemos": "Te responderemos por WhatsApp en menos de 24h",
+    "tu_nombre": "Tu nombre",
+    "tu_correo": "Tu correo",
+    "mensaje": "Mensaje",
+    "nombre_placeholder": "Como te llamas?",
+    "correo_placeholder": "correo@ejemplo.com",
+    "mensaje_placeholder": "Cuentanos sobre tu perfil y que beca te interesa...",
+    "enviar": "Enviar por WhatsApp",
+    "whatsapp_ready": "Al hacer clic se abrira WhatsApp con tu mensaje listo",
+    "siguenos": "Siguenos en redes",
+    "alt_equipo": "Equipo Mar de Becas",
+    "bullets": [
+      "Mentoria 100% online desde cualquier pais de Latam",
+      "Sesiones en vivo con expertos que ya ganaron becas",
+      "Acompanamiento personalizado en cada etapa",
+      "Comunidad activa de becarios latinoamericanos"
+    ],
+    "mensaje_whatsapp": "Hola Marilu, soy {name}.\n\n{message}\n\nMi correo: {email}"
+  },
+  "footer": {
+    "description_1": "Impulsamos el camino de talentosos profesionales hacia las mejores",
+    "description_2": "becas internacionales.",
+    "mission": "Tu sueno academico, nuestra mision.",
+    "newsletter_title": "Recibe oportunidades y recursos exclusivos",
+    "newsletter_text": "Tips, convocatorias y novedades en tu correo.",
+    "email_placeholder": "Tu correo electronico",
+    "contact_aria": "Ir a contacto para completar tu interes",
+    "newsletter_note": "Por ahora te llevamos a la seccion de contacto; pronto activaremos el boletin.",
+    "services": "Servicios",
+    "resources": "Recursos",
+    "legal": "Legal",
+    "soon": "Proximamente",
+    "rights": "Todos los derechos reservados.",
+    "made": "Hecho para futuros becarios",
+    "links": {
+      "scholarshipAdvising": "Asesoria de Becas",
+      "documentPrep": "Preparacion de Documentos",
+      "interviewCoaching": "Coaching de Entrevistas",
+      "groupWorkshops": "Talleres Grupales",
+      "featuredScholarships": "Becas Destacadas",
+      "news": "Noticias",
+      "faq": "FAQ",
+      "guides": "Guias y Plantillas",
+      "privacy": "Politica de Privacidad",
+      "terms": "Terminos de Servicio",
+      "cookies": "Cookies",
+      "claims": "Libro de Reclamaciones"
+    }
+  }
+}
